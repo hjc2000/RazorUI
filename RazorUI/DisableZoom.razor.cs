@@ -8,7 +8,8 @@ public partial class DisableZoom
 	protected override async Task OnInitializedAsync()
 	{
 		moudel = await JS.InvokeAsync<IJSObjectReference>("import",
-		"./_content/RazorUI/DisableZoom.razor.js");
+														  "./_content/RazorUI/DisableZoom.razor.js");
+
 		await moudel.InvokeVoidAsync("DisableZoom");
 	}
 }
