@@ -40,7 +40,7 @@ public partial class PCLayoutComponent
 	public RenderFragment? StateBar { get; set; }
 
 	/// <summary>
-	/// 用于隐藏左侧边栏的按钮。如果设置了本参数，则内置的按钮将被禁用，转而使用这个
+	///		“隐藏左侧边栏” 按钮。如果设置了本参数，则内置的按钮将被禁用，转而使用这个
 	/// </summary>
 	[Parameter]
 	public RenderFragment? HideLeftMenuButton { get; set; }
