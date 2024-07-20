@@ -28,7 +28,7 @@ public partial class PCLayoutComponent
 	}
 
 	[Parameter]
-	public RenderFragment? LeftBarContentBox { get; set; }
+	public RenderFragment? LeftBarContent { get; set; }
 
 	[Parameter]
 	public RenderFragment? LeftMenu { get; set; }
