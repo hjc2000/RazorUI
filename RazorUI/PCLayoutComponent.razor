@@ -1,17 +1,22 @@
 @inject IJSRuntime JSRuntime
 
 @*根节点占据全部视觉宽高，溢出隐藏*@
+
 <div class="root"
 	 style="width: @(Width);
 			height: @(Height);">
 
 	<div class="left-bar"
-		 style="width: 40px;
-			    background-color: aquamarine;">
+		 style="width: @(LeftBarWidth);
+			    background-color: @(LeftBarBackgroundColor);
+				color: @(LeftBarFontColor);">
 
-		<div style="padding: 10px;" @onclick="ToggleHideLeftMenu">
-			@*☰☱☲☳☴☵☶☷*@
-			<div class="hide-left-menu-button">☰</div>
+		@*☰☱☲☳☴☵☶☷*@
+		<div class="hide-left-menu-button" @onclick="ToggleHideLeftMenu">
+			<div class="hide-left-menu-button-text">☰</div>
+		</div>
+		<div class="left-bar-content">
+			@LeftBarContentBox
 		</div>
 	</div>
 

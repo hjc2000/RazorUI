@@ -20,14 +20,38 @@
 	}
 
 .left-bar {
+	padding: 10px 0;
 	grid-row: 1/-1;
 	grid-column: 1;
 	overflow: hidden;
 	user-select: none;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: grid;
+	grid-row-gap: 10px;
+	grid-template-rows: max-content 1fr;
+	grid-template-columns: auto;
 }
+
+	.left-bar .hide-left-menu-button {
+		grid-row: 1;
+		text-align: center;
+	}
+
+		.left-bar .hide-left-menu-button:active .hide-left-menu-button-text {
+			transform: scaleX(50%);
+		}
+
+	.left-bar .left-bar-content {
+		grid-row: 2;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		display: grid;
+		grid-row-gap: 10px;
+		grid-template-columns: auto;
+		justify-content: center;
+		justify-items: center;
+		align-content: start;
+	}
 
 .left-menu {
 	grid-row: 1/3;
@@ -36,10 +60,6 @@
 	user-select: none;
 }
 
-.hide-left-menu-button:active {
-	transition: width 0.4s;
-	transform: scaleX(50%)
-}
 
 .top-bar {
 	grid-row: 1;

@@ -28,6 +28,9 @@ public partial class PCLayoutComponent
 	}
 
 	[Parameter]
+	public RenderFragment? LeftBarContentBox { get; set; }
+
+	[Parameter]
 	public RenderFragment? LeftMenu { get; set; }
 
 	[Parameter]
@@ -43,6 +46,13 @@ public partial class PCLayoutComponent
 	public string Width { get; set; } = "100vw";
 	[Parameter]
 	public string Height { get; set; } = "100vh";
+
+	[Parameter]
+	public string LeftBarWidth { get; set; } = "40px";
+	[Parameter]
+	public string LeftBarBackgroundColor { get; set; } = "darkslateblue";
+	[Parameter]
+	public string LeftBarFontColor { get; set; } = "white";
 
 	[Parameter]
 	public string LeftMenuWidth { get; set; } = "200px";
