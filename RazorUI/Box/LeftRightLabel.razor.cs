@@ -13,23 +13,24 @@ public partial class LeftRightLabel
 	public RenderFragment? Right { get; set; }
 
 	/// <summary>
-	///		默认是 max-content 1fr
+	///		列模板。默认：max-content 1fr
 	/// </summary>
 	[Parameter]
 	public string ColumnTemplate { get; set; } = "max-content 1fr";
+
 	/// <summary>
-	///		列间距默认 5px
+	///		列间隙。默认：5px
 	/// </summary>
 	[Parameter]
 	public string ColumnGap { get; set; } = "5px";
 
 	/// <summary>
-	///		宽度默认 100%
+	///		宽度。默认：100%
 	/// </summary>
 	[Parameter]
 	public string Width { get; set; } = "100%";
 	/// <summary>
-	///		高度默认 auto
+	///		高度。默认：auto
 	/// </summary>
 	[Parameter]
 	public string Height { get; set; } = "auto";
