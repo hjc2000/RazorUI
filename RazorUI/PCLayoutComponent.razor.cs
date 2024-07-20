@@ -61,7 +61,7 @@ public partial class PCLayoutComponent
 	[Parameter]
 	public string LeftMenuBorderColor { get; set; } = "gray";
 	[Parameter]
-	public string LeftMenuBorderWidth { get; set; } = "0 1px 0 0";
+	public string LeftMenuBorderWidth { get; set; } = "0";
 
 	[Parameter]
 	public string TopBarHeight { get; set; } = "50px";
@@ -74,5 +74,5 @@ public partial class PCLayoutComponent
 	[Parameter]
 	public string TopBarBorderColor { get; set; } = "gray";
 	[Parameter]
-	public string TopBarBorderWidth { get; set; } = "0 0 1px 0";
+	public string TopBarBorderWidth { get; set; } = "0";
 }
