@@ -1,4 +1,4 @@
-﻿using JSInteropLib;
+using JSInteropLib;
 using Microsoft.JSInterop;
 
 namespace RazorUI;

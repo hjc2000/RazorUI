@@ -1,4 +1,4 @@
-﻿export function log(msg)
+export function log(msg)
 {
 	console.log(msg);
 }

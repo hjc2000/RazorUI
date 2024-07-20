@@ -1,4 +1,4 @@
-﻿namespace RazorUI;
+namespace RazorUI;
 
 /// <summary>
 ///		此异常的消息会通过 alert 通知用户。这用来告知用户它的操作没有达到想要的结果。

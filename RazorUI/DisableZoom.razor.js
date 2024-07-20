@@ -1,4 +1,4 @@
-﻿/**
+/**
  * 禁用 鼠标滚轮缩放、双指滑动缩放
  */
 export function DisableZoom()

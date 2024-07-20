@@ -1,4 +1,4 @@
-﻿/*根节点，占据全部视觉宽高*/
+/*根节点，占据全部视觉宽高*/
 .root {
 	display: grid;
 	overflow: hidden;

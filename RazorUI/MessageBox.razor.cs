@@ -1,4 +1,4 @@
-﻿namespace RazorUI;
+namespace RazorUI;
 
 public partial class MessageBox
 {
