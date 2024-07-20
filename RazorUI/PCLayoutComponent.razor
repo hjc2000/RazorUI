@@ -4,29 +4,51 @@
 <div class="root"
 	 style="width: @(Width);
 			height: @(Height);">
+
+	<div class="left-bar"
+		 style="width: 40px;
+			    background-color: aquamarine;">
+
+		<div style="padding: 10px;" @onclick="ToggleHideLeftMenu">
+			@if (HideLeftMenuButton is null)
+			{
+				@*☰☱☲☳☴☵☶☷*@
+				<div class="hide-left-menu-button">☰</div>
+			}
+			else
+			{
+				@HideLeftMenuButton
+			}
+		</div>
+	</div>
+
 	<div class="left-menu"
 		 style="width: @(UsedLeftMenuWidth);
+				background-color: @(LeftMenuBackgroundColor);
+				border-style: @(LeftMenuBorderStyle);
+				border-color: @(LeftMenuBorderColor);
+				border-width: @(LeftMenuBorderWidth);
 				transition: width 0.4s;">
+
 		@LeftMenu
 	</div>
-	<div class="top-bar">
+
+	<div class="top-bar"
+		 style="height: @(TopBarHeight);
+				background-color: @(TopBarBackgroundColor);
+				border-style: @(TopBarBorderStyle);
+				border-color: @(TopBarBorderColor);
+				border-width: @(TopBarBorderWidth);">
+
 		@TopBar
 	</div>
+
 	<div class="content">
 		@Content
 	</div>
+
 	<div class="state-bar">
 		@StateBar
 	</div>
-	<div class="hide-left-menu-button-box" @onclick="ToggleHideLeftMenu">
-		@if (HideLeftMenuButton is null)
-		{
-			@*☰☱☲☳☴☵☶☷*@
-			<button class="hide-left-menu-button">☰</button>
-		}
-		else
-		{
-			@HideLeftMenuButton
-		}
-	</div>
+
 </div>

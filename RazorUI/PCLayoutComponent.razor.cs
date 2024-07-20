@@ -49,6 +49,30 @@ public partial class PCLayoutComponent
 	public string Width { get; set; } = "100vw";
 	[Parameter]
 	public string Height { get; set; } = "100vh";
+
 	[Parameter]
 	public string LeftMenuWidth { get; set; } = "200px";
+
+	[Parameter]
+	public string LeftMenuBackgroundColor { get; set; } = "unset";
+
+	[Parameter]
+	public string LeftMenuBorderStyle { get; set; } = "solid";
+	[Parameter]
+	public string LeftMenuBorderColor { get; set; } = "gray";
+	[Parameter]
+	public string LeftMenuBorderWidth { get; set; } = "0 1px 0 0";
+
+	[Parameter]
+	public string TopBarHeight { get; set; } = "50px";
+
+	[Parameter]
+	public string TopBarBackgroundColor { get; set; } = "unset";
+
+	[Parameter]
+	public string TopBarBorderStyle { get; set; } = "solid";
+	[Parameter]
+	public string TopBarBorderColor { get; set; } = "gray";
+	[Parameter]
+	public string TopBarBorderWidth { get; set; } = "0 0 1px 0";
 }
