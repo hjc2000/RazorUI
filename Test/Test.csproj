@@ -15,10 +15,6 @@
 		<PackageReference Include="BlazorMonaco" Version="3.2.0" />
 		<PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.5" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="8.0.70" />
-		<PackageReference Include="Silk.NET" Version="2.21.0" />
-		<PackageReference Include="Silk.NET.SDL" Version="2.21.0" />
-		<PackageReference Include="Silk.NET.Windowing" Version="2.21.0" />
-		<PackageReference Include="Silk.NET.Windowing.Sdl" Version="2.21.0" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\RazorUI\RazorUI.csproj" />
