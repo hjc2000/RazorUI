@@ -1,8 +1,11 @@
-﻿using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Windows;
+using System.Windows.Interop;
 
 namespace Test;
+
 /// <summary>
 /// ProcessWindow.xaml 的交互逻辑
 /// </summary>
@@ -11,38 +14,64 @@ public partial class ProcessWindow : Window
 	public ProcessWindow()
 	{
 		InitializeComponent();
-		// 定义图像的宽度和高度
-		int width = 320;
-		int height = 240;
+	}
+}
 
-		// 计算图像的总像素数
-		int totalPixels = width * height;
+public class MyHwnd : HwndHost
+{
+	protected override unsafe HandleRef BuildWindowCore(HandleRef hwndParent)
+	{
+		// 创建非托管窗口
+		_hwnd = CreateWindowEx(
+			0,
+			"STATIC",
+			null,
+			WS_VISIBLE | WS_CHILD,
+			0, 0,
+			100, 200,
+			hwndParent.Handle, IntPtr.Zero,
+			GetModuleHandle(null),
+			IntPtr.Zero);
 
-		// 创建一个字节数组，每个像素占用4个字节（R, G, B, A）
-		byte[] pixels = new byte[totalPixels * 4];
-
-		// 设置每个像素为绿色（RGB：0, 255, 0）
-		for (int i = 0; i < totalPixels; i++)
+		if (_hwnd == IntPtr.Zero)
 		{
-			// Green color: R=0, G=255, B=0, A=255 (fully opaque)
-			pixels[(i * 4) + 0] = 0;   // Red
-			pixels[(i * 4) + 1] = 255; // Green
-			pixels[(i * 4) + 2] = 0;   // Blue
-			pixels[(i * 4) + 3] = 255; // Alpha
+			throw new Win32Exception();
 		}
 
-		// 创建 BitmapSource 对象
-		BitmapSource greenImage = BitmapSource.Create(
-			width,
-			height,
-			96, // DPI (dots per inch) in X dimension
-			96, // DPI in Y dimension
-			PixelFormats.Bgra32, // Pixel format (BGRA with 32 bits per pixel)
-			null, // No palette required for this format
-			pixels, // Pixel data
-			width * 4); // Pixel stride (number of bytes per line)
-
-		// 创建 Image 控件并设置其源
-		image.Source = greenImage;
+		return new HandleRef(this, _hwnd);
 	}
+
+	protected override void DestroyWindowCore(HandleRef hwnd)
+	{
+		// 销毁非托管窗口
+		DestroyWindow(hwnd.Handle);
+	}
+
+	private IntPtr _hwnd;
+
+	#region Win32 API declarations
+	[DllImport("user32.dll")]
+	private static extern IntPtr CreateWindowEx(
+		int dwExStyle,
+		string lpClassName,
+		string? lpWindowName,
+		int dwStyle,
+		int x, int y,
+		int nWidth, int nHeight,
+		IntPtr hWndParent,
+		IntPtr hMenu,
+		IntPtr hInstance,
+		IntPtr lpParam);
+
+	[DllImport("user32.dll")]
+	private static extern bool DestroyWindow(IntPtr hWnd);
+
+	[DllImport("kernel32.dll")]
+	private static extern IntPtr GetModuleHandle(string? lpModuleName);
+	#endregion
+
+	#region Window styles and flags
+	private const int WS_VISIBLE = 0x10000000;
+	private const int WS_CHILD = 0x40000000;
+	#endregion
 }
