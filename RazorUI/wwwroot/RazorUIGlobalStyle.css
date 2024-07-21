@@ -1,0 +1,27 @@
+* {
+	font-size: 20px;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	border-style: none;
+}
+
+input {
+	width: 100%;
+	height: 100%;
+}
+
+select {
+	width: 100%;
+	height: 100%;
+}
+
+.full-box {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	margin: 0;
+}

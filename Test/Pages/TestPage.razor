@@ -1,5 +1,14 @@
 @page "/"
+@using BlazorMonaco.Editor
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
 
 <div class="root">
-	<Editor></Editor>
+	@if (_init_tcs.Task.IsCompleted)
+	{
+		<StandaloneCodeEditor CssClass="full-box"
+							  Id="my-editor-instance-id"
+							  ConstructionOptions="EditorConstructionOptions">
+		</StandaloneCodeEditor>
+	}
 </div>

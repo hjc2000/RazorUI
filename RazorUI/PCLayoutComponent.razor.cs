@@ -1,9 +1,21 @@
+using JSInteropLib;
 using Microsoft.AspNetCore.Components;
 
 namespace RazorUI;
 
 public partial class PCLayoutComponent
 {
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+		_jsop = new JSOp(JSRuntime);
+		_init_tcs.TrySetResult();
+		await _jsop.AddCssAsync("./_content/RazorUI/RazorUIGlobalStyle.css");
+	}
+
+	private TaskCompletionSource _init_tcs = new();
+	private JSOp _jsop = default!;
+
 	private bool _hide_left_menu = false;
 	private string UsedLeftMenuWidth
 	{
