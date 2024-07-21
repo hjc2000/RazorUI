@@ -17,6 +17,9 @@ public partial class TestPage
 		await _jsop.AddScriptAsync("./_content/BlazorMonaco/lib/monaco-editor/min/vs/editor/editor.main.js");
 
 		_init_tcs.TrySetResult();
+
+		DialogWindow dialog = new();
+		dialog.Show();
 	}
 
 	private TaskCompletionSource _init_tcs = new();
