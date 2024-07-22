@@ -1,11 +1,14 @@
 .root {
+	display: block;
+	outline: none;
 	overflow: hidden;
 	box-sizing: border-box;
 	padding: 10px 0;
 	text-align: center;
 }
 
-[current_uri] {
+[focus] {
 	border-left-style: solid;
 	border-left-width: 2px;
+	background-color: rgba(200,200,200,0.1);
 }

@@ -10,30 +10,15 @@ public partial class LeftBarNavButton
 	[Parameter]
 	public string LeftBorderColor { get; set; } = "yellow";
 
-	/// <summary>
-	///		设置本按钮所对应的路径。
-	/// </summary>
-	/// <remarks>
-	///		必须是相对于基础路径的相对路径。
-	/// </remarks>
 	[Parameter]
-	public string Path { get; set; } = "./";
+	public string Href { get; set; } = "./";
 
-	private bool IsCurrentPath
+	private bool ShouldFocus
 	{
 		get
 		{
-			string relative_path = System.IO.Path.GetRelativePath(
-				new UriBuilder(Nav.BaseUri).Path,
-				new UriBuilder(Nav.Uri).Path);
-
-			string current_path = System.IO.Path.GetRelativePath("./", Path);
-			if (current_path == relative_path)
-			{
-				return true;
-			}
-
-			return false;
+			string uri = Nav.ToAbsoluteUri(Href).ToString();
+			return uri == Nav.Uri;
 		}
 	}
 }

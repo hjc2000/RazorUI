@@ -1,8 +1,9 @@
 @inject NavigationManager Nav
 
-<div class="root"
-	 current_uri="@(IsCurrentPath)"
-	 style="border-left-color: @(LeftBorderColor);">
+<a class="root"
+   href="@(Href)"
+   focus="@(ShouldFocus)"
+   style="border-left-color: @(LeftBorderColor);">
 
 	@(ChildContent)
-</div>
+</a>

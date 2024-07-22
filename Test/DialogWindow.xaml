@@ -11,6 +11,25 @@
 		Height="450" Width="800">
 
 	<Grid>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="_File">
+				<MenuItem Header="New" InputGestureText="Ctrl+N"/>
+				<MenuItem Header="Open" InputGestureText="Ctrl+O"/>
+				<Separator/>
+				<MenuItem Header="Save" InputGestureText="Ctrl+S"/>
+				<MenuItem Header="Save As..."/>
+				<Separator/>
+				<MenuItem Header="Exit"/>
+			</MenuItem>
+			<MenuItem Header="_Edit">
+				<MenuItem Header="Undo" InputGestureText="Ctrl+Z"/>
+				<MenuItem Header="Redo" InputGestureText="Ctrl+Y"/>
+				<Separator/>
+				<MenuItem Header="Cut" InputGestureText="Ctrl+X"/>
+				<MenuItem Header="Copy" InputGestureText="Ctrl+C"/>
+				<MenuItem Header="Paste" InputGestureText="Ctrl+V"/>
+			</MenuItem>
+		</Menu>
 		<blazor:BlazorWebView HostPage="wwwroot\index.html" Services="{DynamicResource services}">
 			<blazor:BlazorWebView.RootComponents>
 				<blazor:RootComponent Selector="#app" ComponentType="{x:Type local_pages:DialogPage}" />
