@@ -13,6 +13,9 @@ public partial class LeftBarNavButton
 	/// <summary>
 	///		设置本按钮所对应的路径。
 	/// </summary>
+	/// <remarks>
+	///		必须是相对于基础路径的相对路径。
+	/// </remarks>
 	[Parameter]
 	public string Path { get; set; } = "./";
 
@@ -20,8 +23,10 @@ public partial class LeftBarNavButton
 	{
 		get
 		{
-			UriBuilder builder = new(Nav.Uri);
-			string relative_path = System.IO.Path.GetRelativePath("/", builder.Path);
+			string relative_path = System.IO.Path.GetRelativePath(
+				new UriBuilder(Nav.BaseUri).Path,
+				new UriBuilder(Nav.Uri).Path);
+
 			string current_path = System.IO.Path.GetRelativePath("./", Path);
 			if (current_path == relative_path)
 			{
