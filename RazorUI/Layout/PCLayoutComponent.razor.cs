@@ -1,7 +1,7 @@
 using JSInteropLib;
 using Microsoft.AspNetCore.Components;
 
-namespace RazorUI;
+namespace RazorUI.Layout;
 
 public partial class PCLayoutComponent
 {
