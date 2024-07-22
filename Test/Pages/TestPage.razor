@@ -4,11 +4,10 @@
 @inject IJSRuntime JS
 
 <div class="root">
-	@if (_init_tcs.Task.IsCompleted)
-	{
+	<RazorUI.ImportHelper.MonacoImportHelper>
 		<StandaloneCodeEditor CssClass="full-box padding_top_20px"
 							  Id="Id"
 							  ConstructionOptions="EditorConstructionOptions">
 		</StandaloneCodeEditor>
-	}
+	</RazorUI.ImportHelper.MonacoImportHelper>
 </div>

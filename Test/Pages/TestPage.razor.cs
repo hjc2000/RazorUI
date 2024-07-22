@@ -11,11 +11,6 @@ public partial class TestPage
 	{
 		await base.OnInitializedAsync();
 		_jsop = new JSOp(JS);
-
-		await _jsop.AddScriptAsync("./_content/BlazorMonaco/jsInterop.js");
-		await _jsop.AddScriptAsync("./_content/BlazorMonaco/lib/monaco-editor/min/vs/loader.js");
-		await _jsop.AddScriptAsync("./_content/BlazorMonaco/lib/monaco-editor/min/vs/editor/editor.main.js");
-
 		_init_tcs.TrySetResult();
 
 		//ProcessWindow window = new();

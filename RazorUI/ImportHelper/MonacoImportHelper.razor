@@ -1,0 +1,10 @@
+@inject IJSRuntime JS
+
+<div class="root"
+	 style="width: @(Width); height: @(Height);">
+
+	@if (_init_tcs.Task.IsCompleted)
+	{
+		@ChildContent
+	}
+</div>
