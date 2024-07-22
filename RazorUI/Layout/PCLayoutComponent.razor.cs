@@ -60,7 +60,7 @@ public partial class PCLayoutComponent
 	public string Height { get; set; } = "100vh";
 
 	[Parameter]
-	public string LeftBarWidth { get; set; } = "40px";
+	public string LeftBarWidth { get; set; } = "50px";
 	[Parameter]
 	public string LeftBarBackgroundColor { get; set; } = "darkslateblue";
 	[Parameter]

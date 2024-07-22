@@ -1,0 +1,11 @@
+.root {
+	overflow: hidden;
+	box-sizing: border-box;
+	padding: 10px 0;
+	text-align: center;
+}
+
+[current_uri] {
+	border-left-style: solid;
+	border-left-width: 2px;
+}

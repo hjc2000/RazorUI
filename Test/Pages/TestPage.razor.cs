@@ -18,8 +18,8 @@ public partial class TestPage
 
 		_init_tcs.TrySetResult();
 
-		ProcessWindow window = new();
-		window.Show();
+		//ProcessWindow window = new();
+		//window.Show();
 	}
 
 	private TaskCompletionSource _init_tcs = new();
