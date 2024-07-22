@@ -17,6 +17,11 @@ public partial class MonacoImportHelper
 		await _jsop.AddScriptAsync("./_content/BlazorMonaco/jsInterop.js");
 		await _jsop.AddScriptAsync("./_content/BlazorMonaco/lib/monaco-editor/min/vs/loader.js");
 		await _jsop.AddScriptAsync("./_content/BlazorMonaco/lib/monaco-editor/min/vs/editor/editor.main.js");
+		if (CssString is not null)
+		{
+			await _jsop.AddStyleAsync(CssString);
+		}
+
 		_init_tcs.TrySetResult();
 	}
 
@@ -30,4 +35,10 @@ public partial class MonacoImportHelper
 	public string Width { get; set; } = "100%";
 	[Parameter]
 	public string Height { get; set; } = "100%";
+
+	/// <summary>
+	///		传进来 css 字符串。将会被添加到 style 标签然后将此 style 标签放到 head 标签中。
+	/// </summary>
+	[Parameter]
+	public string? CssString { get; set; }
 }

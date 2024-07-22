@@ -4,9 +4,9 @@
 @inject IJSRuntime JS
 
 <div class="root">
-	<RazorUI.ImportHelper.MonacoImportHelper>
+	<RazorUI.ImportHelper.MonacoImportHelper CssString="@_css_string">
 		<StandaloneCodeEditor CssClass="full-box padding_top_20px"
-							  Id="Id"
+							  Id="@Id"
 							  ConstructionOptions="EditorConstructionOptions">
 		</StandaloneCodeEditor>
 	</RazorUI.ImportHelper.MonacoImportHelper>

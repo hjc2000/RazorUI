@@ -18,19 +18,3 @@ select {
 	width: 100%;
 	height: 100%;
 }
-
-
-.full-box {
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-	margin: 0;
-}
-
-.padding_top_10px {
-	padding-top: 10px;
-}
-
-.padding_top_20px {
-	padding-top: 20px;
-}
