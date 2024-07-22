@@ -34,6 +34,10 @@ public partial class MonacoImportHelper
 
 	/// <summary>
 	///		传进来 css 字符串。将会被添加到 style 标签然后将此 style 标签放到 head 标签中。
+	///		本属性的默认 css 字符串提供了以下类选择器：
+	///			<br/> .full-box
+	///			<br/> .padding_top_10px
+	///			<br/> .padding_top_20px
 	/// </summary>
 	[Parameter]
 	public string CssString { get; set; } = @"
