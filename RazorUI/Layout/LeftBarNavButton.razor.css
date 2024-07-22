@@ -5,6 +5,8 @@
 	box-sizing: border-box;
 	padding: 10px 0;
 	text-align: center;
+	text-decoration: none;
+	color: inherit;
 }
 
 [focus] {
