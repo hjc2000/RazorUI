@@ -20,24 +20,6 @@ public partial class TestPage
 	private TaskCompletionSource _init_tcs = new();
 	private JSOp _jsop = default!;
 
-	private string _css_string = @"
-		.full-box {
-			width: 100%;
-			height: 100%;
-			box-sizing: border-box;
-			margin: 0;
-		}
-
-		.padding_top_10px {
-			padding-top: 10px;
-		}
-
-		.padding_top_20px {
-			padding-top: 20px;
-		}
-
-		";
-
 	private string? _guid = null;
 	private string Id
 	{
