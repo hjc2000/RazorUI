@@ -1,4 +1,4 @@
-using JCNET.Math;
+using JCNET.数学;
 using Microsoft.AspNetCore.Components;
 
 namespace RazorUI.输入框;
@@ -24,7 +24,7 @@ public partial class IntInputElement
 	///		允许的范围。
 	/// </summary>
 	[Parameter]
-	public Range<long>? Range { get; set; }
+	public NumberRange<long>? Range { get; set; }
 
 	private string ValueString
 	{
