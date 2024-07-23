@@ -1,4 +1,4 @@
-﻿using BlazorMonaco.Editor;
+using BlazorMonaco.Editor;
 using JSInteropLib;
 using System;
 using System.Threading.Tasks;
