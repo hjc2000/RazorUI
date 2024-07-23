@@ -42,6 +42,7 @@ public interface IFileManager
 	///		如果目标路径下已存在同名文件，是否覆盖。
 	///		* 这个参数传递给服务器，如果不覆盖，又存在同名文件，服务器应该返回错误。
 	///	</param>
+	///	<param name="cancellationToken"></param>
 	/// <returns></returns>
 	Task UploadFileAsync(string full_path, Stream file_stream, bool overwrite, CancellationToken cancellationToken);
 

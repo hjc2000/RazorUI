@@ -21,12 +21,18 @@ public struct SerialPortOptions
 
 public partial class SerialPortSetupFormTable
 {
+	/// <summary>
+	///		连接按钮点击事件回调函数。
+	/// </summary>
 	[Parameter]
 	public EventCallback<SerialPortOptions> ConnectButtonClickCallback { get; set; }
 
 	private SerialPortOptions _serial_port_options = new();
 	private SemaphoreSlim _connect_lock = new(1);
 
+	/// <summary>
+	///		获取系统中所有可用的串口的端口名。
+	/// </summary>
 	public string[] PortNames
 	{
 		get
@@ -42,7 +48,7 @@ public partial class SerialPortSetupFormTable
 		}
 	}
 
-	public string BaudRateString
+	private string BaudRateString
 	{
 		get
 		{

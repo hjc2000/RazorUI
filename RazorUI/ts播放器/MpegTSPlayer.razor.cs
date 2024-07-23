@@ -228,6 +228,10 @@ public partial class MpegTSPlayer : IJSObjectProjection, IAsyncDisposable
 
 	[Parameter]
 	public ITSStreamSource TSStreamSource { get; set; } = default!;
+
+	/// <summary>
+	///		是否显示视频控件。即视频窗口中的暂停，进度条，音量等按钮。
+	/// </summary>
 	[Parameter]
 	public bool Controls { get; set; } = true;
 
@@ -237,8 +241,6 @@ public partial class MpegTSPlayer : IJSObjectProjection, IAsyncDisposable
 	/// <summary>
 	///		初始化播放器。
 	/// </summary>
-	/// <param name="data_source"></param>
-	/// <param name="config"></param>
 	/// <returns></returns>
 	private async Task InitPlayerAsync()
 	{

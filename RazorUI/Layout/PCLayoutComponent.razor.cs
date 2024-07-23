@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace RazorUI.Layout;
 
+/// <summary>
+///		PC 端的布局组件。
+/// </summary>
 public partial class PCLayoutComponent
 {
 	protected override async Task OnInitializedAsync()
