@@ -1,14 +1,27 @@
 using Microsoft.AspNetCore.Components;
 
 namespace RazorUI.表单;
+
+/// <summary>
+///		表单
+/// </summary>
 public partial class FormTable
 {
+	/// <summary>
+	///		表单头部。
+	/// </summary>
 	[Parameter]
 	public RenderFragment? Head { get; set; }
 
+	/// <summary>
+	///		表单主体。
+	/// </summary>
 	[Parameter]
 	public RenderFragment? Body { get; set; }
 
+	/// <summary>
+	///		表单脚部。
+	/// </summary>
 	[Parameter]
 	public RenderFragment? Foot { get; set; }
 

@@ -10,6 +10,9 @@ namespace RazorUI.Box;
 /// </remarks>
 public partial class BreathingBorderBox
 {
+	/// <summary>
+	///		子内容。
+	/// </summary>
 	[Parameter]
 	public RenderFragment? ChildContent { get; set; }
 
