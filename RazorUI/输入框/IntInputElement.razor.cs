@@ -12,19 +12,19 @@ public partial class IntInputElement
 	///		绑定的值
 	/// </summary>
 	[Parameter]
-	public long Value { get; set; }
+	public int Value { get; set; }
 
 	/// <summary>
 	///		绑定的值
 	/// </summary>
 	[Parameter]
-	public EventCallback<long> ValueChanged { get; set; }
+	public EventCallback<int> ValueChanged { get; set; }
 
 	/// <summary>
 	///		允许的范围。
 	/// </summary>
 	[Parameter]
-	public NumberRange<long>? Range { get; set; }
+	public NumberRange<int>? Range { get; set; }
 
 	private string ValueString
 	{
@@ -36,7 +36,7 @@ public partial class IntInputElement
 
 	private async Task OnChange(string value)
 	{
-		bool result = long.TryParse(value, out long out_long);
+		bool result = int.TryParse(value, out int out_long);
 		if (!result)
 		{
 			return;
