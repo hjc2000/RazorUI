@@ -15,6 +15,7 @@ input {
 }
 
 	input[type=checkbox] {
+		outline: none;
 		transform: translateY(-0.15em);
 	}
 
