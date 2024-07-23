@@ -9,6 +9,10 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="输入框\DoubleInputElement.razor" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -18,6 +22,18 @@
     <PackageReference Include="JCNET" Version="9.0.0" />
     <PackageReference Include="JSInteropLib" Version="1.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="输入框\DoubleInputElement.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="输入框\DoubleInputElement.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="输入框\DoubleInputElement.razor" />
   </ItemGroup>
 
 </Project>
