@@ -29,6 +29,9 @@ public partial class LeftBarNavButton
 	[Parameter]
 	public string Href { get; set; } = "./";
 
+	/// <summary>
+	///		Href 转化为的绝对路径
+	/// </summary>
 	private string AbsoluteHrefUri
 	{
 		get
@@ -37,6 +40,9 @@ public partial class LeftBarNavButton
 		}
 	}
 
+	/// <summary>
+	///		Href 转化为的相对于 base 标签中指定的基路径的相对路径。
+	/// </summary>
 	private string RelativeHrefUri
 	{
 		get
@@ -46,7 +52,7 @@ public partial class LeftBarNavButton
 	}
 
 	/// <summary>
-	///		导航系统当前所处的绝对 URI 相对于基础 URI 的 URI。
+	///		导航系统当前所处的绝对 URI 相对于基础 URI 的相对 URI。
 	/// </summary>
 	private string CurrentRelativeUri
 	{
