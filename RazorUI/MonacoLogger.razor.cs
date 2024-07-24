@@ -21,13 +21,11 @@ public partial class MonacoLogger : IAsyncDisposable
 				Console.WriteLine("666666666666666");
 				Console.WriteLine("666666666666666");
 				Console.WriteLine("666666666666666");
-				TextModel module = await Editor.GetModel();
-				await module.SetValue(Writer.ToString());
-
-				int top = await module.GetLineCount();
+				await _editor.SetValue(Writer.ToString());
+				int top = (int)await _editor.GetScrollHeight();
 				if (top > 0)
 				{
-					await Editor.SetScrollTop(top);
+					await _editor.SetScrollTop(top, ScrollType.Immediate);
 				}
 			}
 			catch (Exception ex)
@@ -58,23 +56,13 @@ public partial class MonacoLogger : IAsyncDisposable
 	private TaskCompletionSource _editor_init_tcs = new();
 	private StandaloneCodeEditor _editor = default!;
 
-	private StandaloneCodeEditor Editor
-	{
-		get
-		{
-			return _editor;
-		}
-		set
-		{
-			if (value is not null)
-			{
-				_editor = value;
-				_editor_init_tcs.TrySetResult();
-			}
-		}
-	}
-
 	private IDStringProvider _id_provider = new();
+
+	private async Task OnMonacoEditInit()
+	{
+		await Task.CompletedTask;
+		_editor_init_tcs.TrySetResult();
+	}
 
 	private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor)
 	{
@@ -85,6 +73,12 @@ public partial class MonacoLogger : IAsyncDisposable
 			Theme = "vs-dark",
 			Value = string.Empty,
 			ReadOnly = true,
+			ScrollBeyondLastLine = false,
+			Padding = new EditorPaddingOptions()
+			{
+				Top = 20,
+				Bottom = 20,
+			},
 		};
 	}
 }

@@ -4,10 +4,11 @@
 
 <div class="root">
 	<RazorUI.ImportHelper.MonacoImportHelper>
-		<StandaloneCodeEditor @ref="Editor"
-							  CssClass="full-box padding_top_20px"
+		<StandaloneCodeEditor @ref="_editor"
+							  CssClass="full-box"
 							  Id="@_id_provider.IdString"
-							  ConstructionOptions="@EditorConstructionOptions">
+							  ConstructionOptions="@EditorConstructionOptions"
+							  OnDidInit="OnMonacoEditInit">
 		</StandaloneCodeEditor>
 	</RazorUI.ImportHelper.MonacoImportHelper>
 </div>

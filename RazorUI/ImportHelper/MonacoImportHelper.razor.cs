@@ -51,14 +51,5 @@ public partial class MonacoImportHelper
 			box-sizing: border-box;
 			margin: 0;
 		}
-
-		.padding_top_10px {
-			padding-top: 10px;
-		}
-
-		.padding_top_20px {
-			padding-top: 20px;
-		}
-
 		";
 }
