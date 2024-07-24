@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using JCNET.反射;
+using Microsoft.AspNetCore.Components;
 
 namespace RazorUI.输入框;
 
@@ -10,7 +11,7 @@ public partial class EnumSelectElement<TEnum> where TEnum : Enum
 {
 	static EnumSelectElement()
 	{
-		OptionDictionary = EnumTypeToDictionary();
+		OptionDictionary = EnumReflex.ToDictionary<TEnum>();
 	}
 
 	private static Dictionary<TEnum, string> OptionDictionary { get; }
@@ -30,23 +31,5 @@ public partial class EnumSelectElement<TEnum> where TEnum : Enum
 	private async Task OnOptionChanged(TEnum value)
 	{
 		await ValueChanged.InvokeAsync(value);
-	}
-
-	private static Dictionary<TEnum, string> EnumTypeToDictionary()
-	{
-		Dictionary<TEnum, string> values = Enum.GetValues(typeof(TEnum))
-						 .Cast<TEnum>()
-						 .ToDictionary(
-							 (TEnum e) =>
-							 {
-								 return e;
-							 },
-							 (TEnum e) =>
-							 {
-								 return e.ToString();
-							 }
-						 );
-
-		return values;
 	}
 }
