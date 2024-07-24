@@ -10,6 +10,10 @@ namespace RazorUI.ImportHelper;
 /// </summary>
 public partial class MonacoImportHelper
 {
+	/// <summary>
+	///		初始化。
+	/// </summary>
+	/// <returns></returns>
 	protected override async Task OnInitializedAsync()
 	{
 		await base.OnInitializedAsync();

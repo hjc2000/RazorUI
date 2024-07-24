@@ -3,7 +3,11 @@
 @inject StringBuilderLogWriter Writer
 
 <div class="root">
-	<textarea readonly>
-		@Content
-	</textarea>
+	<RazorUI.ImportHelper.MonacoImportHelper>
+		<StandaloneCodeEditor @ref="Editor"
+							  CssClass="full-box padding_top_20px"
+							  Id="@_id_provider.IdString"
+							  ConstructionOptions="@EditorConstructionOptions">
+		</StandaloneCodeEditor>
+	</RazorUI.ImportHelper.MonacoImportHelper>
 </div>
