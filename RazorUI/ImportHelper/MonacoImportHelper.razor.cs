@@ -32,11 +32,21 @@ public partial class MonacoImportHelper
 	private TaskCompletionSource _init_tcs = new();
 	private JSOp _jsop = default!;
 
+	/// <summary>
+	///		子内容。
+	/// </summary>
 	[Parameter]
 	public RenderFragment? ChildContent { get; set; }
 
+	/// <summary>
+	///		宽度。默认：100%
+	/// </summary>
 	[Parameter]
 	public string Width { get; set; } = "100%";
+
+	/// <summary>
+	///		高度。默认：100%
+	/// </summary>
 	[Parameter]
 	public string Height { get; set; } = "100%";
 
