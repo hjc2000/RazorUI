@@ -1,6 +1,6 @@
 using BlazorMonaco.Editor;
 using JSInteropLib;
-using System;
+using RazorUI;
 using System.Threading.Tasks;
 
 namespace Test.Pages;
@@ -19,16 +19,7 @@ public partial class TestPage
 
 	private TaskCompletionSource _init_tcs = new();
 	private JSOp _jsop = default!;
-
-	private string? _guid = null;
-	private string Id
-	{
-		get
-		{
-			_guid ??= Guid.NewGuid().ToString();
-			return _guid;
-		}
-	}
+	private IDStringProvider _id_provider = new();
 
 	private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor)
 	{
