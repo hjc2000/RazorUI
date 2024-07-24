@@ -1,5 +1,7 @@
+@typeparam TEnum
+
 <select @bind:get="OptionKey" @bind:set="OnOptionChanged">
-	@foreach (KeyValuePair<int, string> pair in OptionDictionary)
+	@foreach (KeyValuePair<TEnum, string> pair in OptionDictionary)
 	{
 		<option value="@pair.Key">@pair.Value</option>
 	}
