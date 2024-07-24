@@ -1,0 +1,9 @@
+@using BlazorMonaco.Editor
+@using JCNET
+@inject StringBuilderLogWriter Writer
+
+<div class="root">
+	<textarea readonly>
+		@Writer.ToString()
+	</textarea>
+</div>

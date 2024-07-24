@@ -1,13 +1,12 @@
 @page "/"
-@using BlazorMonaco.Editor
+@using JCNET
 @using Microsoft.JSInterop
 @inject IJSRuntime JS
+@inject StringBuilderLogWriter Writer
 
 <div class="root">
-	<RazorUI.ImportHelper.MonacoImportHelper>
-		<StandaloneCodeEditor CssClass="full-box padding_top_20px"
-							  Id="@_id_provider.IdString"
-							  ConstructionOptions="@EditorConstructionOptions">
-		</StandaloneCodeEditor>
-	</RazorUI.ImportHelper.MonacoImportHelper>
+	<div>
+		<RazorUI.Button.STButton @onclick="OnClick">按钮</RazorUI.Button.STButton>
+	</div>
+	<MonacoLogger></MonacoLogger>
 </div>
