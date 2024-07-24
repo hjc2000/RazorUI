@@ -1,4 +1,6 @@
 
+using JCNET.定时器;
+
 namespace RazorUI;
 
 public partial class MonacoLogger : IAsyncDisposable
@@ -6,7 +8,15 @@ public partial class MonacoLogger : IAsyncDisposable
 	protected override void OnInitialized()
 	{
 		base.OnInitialized();
-		Writer.WriteEvent += StateHasChanged;
+		TaskTimer.SetInterval(async () =>
+		{
+			await Task.CompletedTask;
+			Console.WriteLine("666666666666666");
+			Console.WriteLine("666666666666666");
+			Console.WriteLine("666666666666666");
+			Content = Writer.ToString();
+			await InvokeAsync(StateHasChanged);
+		}, 1000, CancellationToken.None);
 	}
 
 	private bool _disposed = false;
@@ -21,6 +31,7 @@ public partial class MonacoLogger : IAsyncDisposable
 		GC.SuppressFinalize(this);
 		await ValueTask.CompletedTask;
 
-		Writer.WriteEvent -= StateHasChanged;
 	}
+
+	private string Content { get; set; } = string.Empty;
 }
