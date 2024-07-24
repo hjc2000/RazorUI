@@ -2,6 +2,10 @@
 
 namespace RazorUI.输入框;
 
+/// <summary>
+///		枚举值下拉选择框。
+/// </summary>
+/// <typeparam name="TEnum"></typeparam>
 public partial class EnumSelectElement<TEnum> where TEnum : Enum
 {
 	static EnumSelectElement()
@@ -12,20 +16,20 @@ public partial class EnumSelectElement<TEnum> where TEnum : Enum
 	private static Dictionary<TEnum, string> OptionDictionary { get; }
 
 	/// <summary>
-	///		绑定选项的键。
+	///		绑定值。
 	/// </summary>
 	[Parameter]
-	public TEnum OptionKey { get; set; }
+	public TEnum Value { get; set; } = default!;
 
 	/// <summary>
-	///		绑定选项的键。
+	///		绑定值。
 	/// </summary>
 	[Parameter]
-	public EventCallback<TEnum> OptionKeyChanged { get; set; }
+	public EventCallback<TEnum> ValueChanged { get; set; }
 
 	private async Task OnOptionChanged(TEnum value)
 	{
-		await OptionKeyChanged.InvokeAsync(value);
+		await ValueChanged.InvokeAsync(value);
 	}
 
 	private static Dictionary<TEnum, string> EnumTypeToDictionary()
