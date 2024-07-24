@@ -21,7 +21,11 @@ public partial class MonacoImportHelper
 		await _jsop.AddScriptAsync("./_content/BlazorMonaco/jsInterop.js");
 		await _jsop.AddScriptAsync("./_content/BlazorMonaco/lib/monaco-editor/min/vs/loader.js");
 		await _jsop.AddScriptAsync("./_content/BlazorMonaco/lib/monaco-editor/min/vs/editor/editor.main.js");
-		await _jsop.AddStyleAsync(CssString);
+		if (CssString != string.Empty)
+		{
+			await _jsop.AddStyleAsync(CssString);
+		}
+
 		_init_tcs.TrySetResult();
 	}
 
@@ -38,18 +42,7 @@ public partial class MonacoImportHelper
 
 	/// <summary>
 	///		传进来 css 字符串。将会被添加到 style 标签然后将此 style 标签放到 head 标签中。
-	///		本属性的默认 css 字符串提供了以下类选择器：
-	///			<br/> .full-box
-	///			<br/> .padding_top_10px
-	///			<br/> .padding_top_20px
 	/// </summary>
 	[Parameter]
-	public string CssString { get; set; } = @"
-		.full-box {
-			width: 100%;
-			height: 100%;
-			box-sizing: border-box;
-			margin: 0;
-		}
-		";
+	public string CssString { get; set; } = string.Empty;
 }

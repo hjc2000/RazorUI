@@ -56,6 +56,23 @@ public partial class MonacoLogger : IAsyncDisposable
 	private TaskCompletionSource _editor_init_tcs = new();
 	private StandaloneCodeEditor _editor = default!;
 
+	private string CssString
+	{
+		get
+		{
+			// 拼接 id 选择器
+			return $"#{_id_provider.IdString}" + @"
+				{
+					width: 100%;
+					height: 100%;
+					box-sizing: border-box;
+					margin: 0;
+					padding: 20px 0 0 0;
+				}
+				";
+		}
+	}
+
 	private IDStringProvider _id_provider = new();
 
 	private async Task OnMonacoEditInit()
