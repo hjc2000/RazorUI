@@ -15,12 +15,24 @@ public partial class MonacoLogger : IAsyncDisposable
 		await base.OnInitializedAsync();
 		TaskTimer.SetInterval(async () =>
 		{
-			await _editor_init_tcs.Task;
-			Console.WriteLine("666666666666666");
-			Console.WriteLine("666666666666666");
-			Console.WriteLine("666666666666666");
-			TextModel module = await Editor.GetModel();
-			await module.SetValue(Writer.ToString());
+			try
+			{
+				await _editor_init_tcs.Task;
+				Console.WriteLine("666666666666666");
+				Console.WriteLine("666666666666666");
+				Console.WriteLine("666666666666666");
+				TextModel module = await Editor.GetModel();
+				await module.SetValue(Writer.ToString());
+
+				int top = await module.GetLineCount();
+				if (top > 0)
+				{
+					await Editor.SetScrollTop(top);
+				}
+			}
+			catch (Exception ex)
+			{
+			}
 		}, 1000, CancellationToken.None);
 	}
 
