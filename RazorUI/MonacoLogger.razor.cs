@@ -27,39 +27,6 @@ public partial class MonacoLogger : IAsyncDisposable
 			";
 	}
 
-	/// <summary>
-	///		初始化。
-	/// </summary>
-	/// <returns></returns>
-	protected override async Task OnInitializedAsync()
-	{
-		await base.OnInitializedAsync();
-
-		async Task refresh_func()
-		{
-			try
-			{
-				await _editor_init_tcs.Task;
-				await _editor.SetValue(Writer.ToString());
-				if (AutoScroll)
-				{
-					int top = (int)await _editor.GetScrollHeight();
-					if (top > 0)
-					{
-						await _editor.SetScrollTop(top, ScrollType.Immediate);
-					}
-				}
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.ToString());
-			}
-		}
-
-		TaskTimer.SetInterval(refresh_func, 1000, _cancel_refresh.Token);
-
-	}
-
 	private bool _disposed = false;
 
 	/// <summary>
@@ -87,8 +54,8 @@ public partial class MonacoLogger : IAsyncDisposable
 	public bool AutoScroll { get; set; } = true;
 
 	private CancellationTokenSource _cancel_refresh = new();
-	private TaskCompletionSource _editor_init_tcs = new();
 	private StandaloneCodeEditor _editor = default!;
+	private bool _edit_init_completed = false;
 
 	private string CssString { get; }
 
@@ -96,8 +63,37 @@ public partial class MonacoLogger : IAsyncDisposable
 
 	private async Task OnMonacoEditInit()
 	{
+		if (_edit_init_completed)
+		{
+			return;
+		}
+
+		_edit_init_completed = true;
 		await Task.CompletedTask;
-		_editor_init_tcs.TrySetResult();
+
+		async Task refresh_func()
+		{
+			try
+			{
+				await _editor.SetValue(Writer.ToString());
+				if (AutoScroll)
+				{
+					int top = (int)await _editor.GetScrollHeight();
+					if (top > 0)
+					{
+						await _editor.SetScrollTop(top, ScrollType.Immediate);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+			}
+		}
+
+		TaskTimer.SetInterval(refresh_func,
+			1000,
+			_cancel_refresh.Token);
 	}
 
 	private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor)
