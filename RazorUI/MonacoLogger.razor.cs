@@ -52,6 +52,18 @@ public partial class MonacoLogger : IAsyncDisposable
 	[Parameter]
 	public bool AutoScroll { get; set; } = true;
 
+	/// <summary>
+	///		是否将编辑器设为只读。
+	/// </summary>
+	[Parameter]
+	public bool ReadOnly { get; set; } = false;
+
+	/// <summary>
+	///		字体大小。
+	/// </summary>
+	[Parameter]
+	public int FontSize { get; set; } = 20;
+
 	private CancellationTokenSource _cancel_refresh = new();
 	private StandaloneCodeEditor _editor = default!;
 
@@ -86,8 +98,10 @@ public partial class MonacoLogger : IAsyncDisposable
 			AutomaticLayout = true,
 			Language = "csharp",
 			Theme = "vs-dark",
-			ReadOnly = true,
+			ReadOnly = ReadOnly,
 			ScrollBeyondLastLine = false,
+			LineHeight = (int)(FontSize * 1.5),
+			FontSize = FontSize,
 			Padding = new EditorPaddingOptions()
 			{
 				Top = 20,

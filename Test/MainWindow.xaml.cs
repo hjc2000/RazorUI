@@ -13,10 +13,11 @@ public partial class MainWindow : Window
 	{
 		InitializeComponent();
 		ServiceCollection serviceCollection = new();
+
+		StringBuilderLogWriter writer = new();
+		Console.SetOut(writer);
 		serviceCollection.AddSingleton((s) =>
 		{
-			StringBuilderLogWriter writer = new();
-			Console.SetOut(writer);
 			return writer;
 		});
 
