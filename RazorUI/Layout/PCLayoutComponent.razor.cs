@@ -117,7 +117,7 @@ public partial class PCLayoutComponent
 	///		左侧菜单的背景色。默认：unset
 	/// </summary>
 	[Parameter]
-	public string LeftMenuBackgroundColor { get; set; } = "lightgray";
+	public string LeftMenuBackgroundColor { get; set; } = "unset";
 
 	/// <summary>
 	///		左侧菜单的边框样式。默认：solid
@@ -144,7 +144,7 @@ public partial class PCLayoutComponent
 	public string TopBarHeight { get; set; } = "50px";
 
 	/// <summary>
-	///		顶部按钮条的背景色。默认：unset
+	///		顶部按钮条的背景色。默认：darkslateblue
 	/// </summary>
 	[Parameter]
 	public string TopBarBackgroundColor { get; set; } = "darkslateblue";
