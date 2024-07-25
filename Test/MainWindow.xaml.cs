@@ -12,7 +12,7 @@ public partial class MainWindow : Window
 	{
 		InitializeComponent();
 		ServiceCollection serviceCollection = new();
-		serviceCollection.AddSingleton_StringBuilderLogWriter_AndSetAsOut();
+		serviceCollection.InjectStringBuilderLogWriter();
 		serviceCollection.AddWpfBlazorWebView();
 		Resources.Add("services", serviceCollection.BuildServiceProvider());
 	}
