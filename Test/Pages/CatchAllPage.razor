@@ -1,0 +1,8 @@
+@page "/{Path}"
+
+<RazorUI.导航.RedirectComponent></RazorUI.导航.RedirectComponent>
+
+@code {
+	[Parameter]
+	public string Path { get; set; } = string.Empty;
+}

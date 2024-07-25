@@ -7,14 +7,14 @@ namespace RazorUI.导航;
 public partial class RedirectComponent
 {
 	/// <summary>
-	/// 
+	///		初始化。会进行重定向。
 	/// </summary>
 	/// <returns></returns>
 	protected override async Task OnInitializedAsync()
 	{
 		await base.OnInitializedAsync();
 		string current_relative_path = Nav.ToBaseRelativePath(Nav.Uri);
-		string dst_relative_path = RedirectUriProvider.GetRedirectUri(current_relative_path);
-		Nav.NavigateTo(dst_relative_path);
+		string dst_path = RedirectUriProvider.GetRedirectUri(current_relative_path);
+		Nav.NavigateTo(dst_path);
 	}
 }
