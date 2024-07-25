@@ -1,6 +1,5 @@
 
 using BlazorMonaco.Editor;
-using JCNET.定时器;
 using Microsoft.AspNetCore.Components;
 
 namespace RazorUI;
@@ -55,7 +54,6 @@ public partial class MonacoLogger : IAsyncDisposable
 
 	private CancellationTokenSource _cancel_refresh = new();
 	private StandaloneCodeEditor _editor = default!;
-	private bool _edit_init_completed = false;
 
 	private string CssString { get; }
 
@@ -63,37 +61,22 @@ public partial class MonacoLogger : IAsyncDisposable
 
 	private async Task OnMonacoEditInit()
 	{
-		if (_edit_init_completed)
+		try
 		{
-			return;
-		}
-
-		_edit_init_completed = true;
-		await Task.CompletedTask;
-
-		async Task refresh_func()
-		{
-			try
+			await _editor.SetValue(Writer.ToString());
+			if (AutoScroll)
 			{
-				await _editor.SetValue(Writer.ToString());
-				if (AutoScroll)
+				int top = (int)await _editor.GetScrollHeight();
+				if (top > 0)
 				{
-					int top = (int)await _editor.GetScrollHeight();
-					if (top > 0)
-					{
-						await _editor.SetScrollTop(top, ScrollType.Immediate);
-					}
+					await _editor.SetScrollTop(top, ScrollType.Immediate);
 				}
 			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.ToString());
-			}
 		}
-
-		TaskTimer.SetInterval(refresh_func,
-			1000,
-			_cancel_refresh.Token);
+		catch (Exception ex)
+		{
+			Console.WriteLine(ex.ToString());
+		}
 	}
 
 	private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor)
