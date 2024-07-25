@@ -32,7 +32,7 @@
 		</Menu>
 		<blazor:BlazorWebView HostPage="wwwroot\index.html" Services="{DynamicResource services}">
 			<blazor:BlazorWebView.RootComponents>
-				<blazor:RootComponent Selector="#app" ComponentType="{x:Type local_pages:DialogRoot}" />
+				<blazor:RootComponent Selector="#app" ComponentType="{x:Type local_pages:Dialog1}" />
 			</blazor:BlazorWebView.RootComponents>
 		</blazor:BlazorWebView>
 	</Grid>
