@@ -117,7 +117,7 @@ public partial class PCLayoutComponent
 	///		左侧菜单的背景色。默认：unset
 	/// </summary>
 	[Parameter]
-	public string LeftMenuBackgroundColor { get; set; } = "unset";
+	public string LeftMenuBackgroundColor { get; set; } = "lightgray";
 
 	/// <summary>
 	///		左侧菜单的边框样式。默认：solid
