@@ -2,7 +2,7 @@
 
 namespace Test.Pages;
 
-public partial class DialogPage
+public partial class DialogRoot
 {
 	protected override async Task OnAfterRenderAsync(bool firstRender)
 	{

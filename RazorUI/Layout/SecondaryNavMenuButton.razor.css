@@ -8,7 +8,7 @@ a {
 	text-decoration: none;
 }
 
-	a:active {
+	a[should_focus] {
 		background-color: lightblue;
 		transform: scale(1.1);
 	}

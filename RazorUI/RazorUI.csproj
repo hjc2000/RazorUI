@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="BlazorMonaco" Version="3.2.0" />
-    <PackageReference Include="JCNET" Version="10.0.0" />
+    <PackageReference Include="JCNET" Version="11.0.0" />
     <PackageReference Include="JSInteropLib" Version="1.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.7" />
   </ItemGroup>

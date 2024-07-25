@@ -13,7 +13,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="BlazorMonaco" Version="3.2.0" />
-		<PackageReference Include="JCNET" Version="10.0.0" />
+		<PackageReference Include="JCNET" Version="11.0.0" />
 		<PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.5" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="8.0.70" />
 	</ItemGroup>

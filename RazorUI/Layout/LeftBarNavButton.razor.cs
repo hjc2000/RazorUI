@@ -1,5 +1,4 @@
-﻿using JCNET.字符串处理;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
 namespace RazorUI.Layout;
 
@@ -37,20 +36,40 @@ public partial class LeftBarNavButton
 	{
 		get
 		{
-			return Nav.ToAbsoluteUri(Href).ToString();
+			string uri = Nav.ToAbsoluteUri(Href).ToString();
+			if (!uri.EndsWith('/'))
+			{
+				uri += "/";
+			}
+
+			return uri;
+		}
+	}
+
+	private string AbsoluteCurrentUri
+	{
+		get
+		{
+			string uri = Nav.Uri;
+			if (!uri.EndsWith('/'))
+			{
+				uri += "/";
+			}
+
+			return uri;
 		}
 	}
 
 	/// <summary>
 	///		只要 CurrentRelativeUri 是 RelativeHrefUri 的子路径就应该聚焦。
-	///		因为左边按钮条是用来做一级导航的，左边菜单做二级导航。
 	/// </summary>
 	private bool ShouldFocus
 	{
 		get
 		{
-			return new RoutePath(new Uri(Nav.Uri)) <=
-				new RoutePath(new Uri(AbsoluteHrefUri));
+			Uri href_uri = new(AbsoluteHrefUri);
+			Uri current_uri = new(AbsoluteCurrentUri);
+			return href_uri.IsBaseOf(current_uri);
 		}
 	}
 }

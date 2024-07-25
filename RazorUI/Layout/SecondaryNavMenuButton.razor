@@ -1,0 +1,20 @@
+@inject IJSRuntime JS
+@inject NavigationManager Nav
+
+<a href="@Href"
+   should_focus="@_should_focus"
+   @onmousedown="OnMouseDown"
+   @onmouseup="OnMouseUp"
+   style="padding-right: 5px;">
+
+	@Left
+</a>
+
+<a href="@Href"
+   should_focus="@_should_focus"
+   @onmousedown="OnMouseDown"
+   @onmouseup="OnMouseUp"
+   style="padding-left:5px;">
+
+	@Right
+</a>
