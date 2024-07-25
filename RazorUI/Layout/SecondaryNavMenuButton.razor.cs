@@ -1,13 +1,48 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Routing;
 
 namespace RazorUI.Layout;
-public partial class SecondaryNavMenuButton
+public partial class SecondaryNavMenuButton : IAsyncDisposable
 {
+	private bool _disposed = false;
+
+	/// <summary>
+	///		释放。
+	/// </summary>
+	/// <returns></returns>
+	public async ValueTask DisposeAsync()
+	{
+		if (_disposed)
+		{
+			return;
+		}
+
+		_disposed = true;
+		GC.SuppressFinalize(this);
+		await ValueTask.CompletedTask;
+
+		Nav.LocationChanged -= OnLocationChange;
+	}
+
+	/// <summary>
+	///		初始化。
+	/// </summary>
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+		Nav.LocationChanged += OnLocationChange;
+	}
+
+	private void OnLocationChange(object? sender, LocationChangedEventArgs args)
+	{
+		StateHasChanged();
+	}
+
 	/// <summary>
 	///		本按钮要导航到的路径。
 	/// </summary>
 	[Parameter]
-	public string Href { get; set; } = "./";
+	public string Href { get; set; } = string.Empty;
 
 	/// <summary>
 	///		Href 转化为的绝对路径
@@ -64,16 +99,4 @@ public partial class SecondaryNavMenuButton
 	/// </summary>
 	[Parameter]
 	public RenderFragment? Right { get; set; }
-
-	private bool _should_focus = false;
-
-	private void OnMouseDown()
-	{
-		_should_focus = true;
-	}
-
-	private void OnMouseUp()
-	{
-		_should_focus = false;
-	}
 }

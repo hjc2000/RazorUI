@@ -27,7 +27,7 @@ public partial class LeftBarNavButton
 	///		当导航系统的当前路径等于本属性指示的路径，或位于本属性指示的路径的子路径时，本按钮会聚焦。<br/>
 	/// </summary>
 	[Parameter]
-	public string Href { get; set; } = "./";
+	public string Href { get; set; } = string.Empty;
 
 	/// <summary>
 	///		Href 转化为的绝对路径
