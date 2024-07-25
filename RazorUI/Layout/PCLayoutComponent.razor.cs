@@ -147,7 +147,7 @@ public partial class PCLayoutComponent
 	///		顶部按钮条的背景色。默认：unset
 	/// </summary>
 	[Parameter]
-	public string TopBarBackgroundColor { get; set; } = "unset";
+	public string TopBarBackgroundColor { get; set; } = "darkslateblue";
 
 	/// <summary>
 	///		顶部按钮条的边框样式。默认：solid
