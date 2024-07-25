@@ -2,6 +2,12 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 
 namespace RazorUI.Layout;
+
+/// <summary>
+///		二级导航菜单按钮。用来被放置到 SecondaryNavMenu 组件中。
+///		<br/>* 通过设置 Href 属性，使得点击后能够导航到指定路径。同时，当前路径如果是 Href
+///			   的子路径，本组件会高亮。
+/// </summary>
 public partial class SecondaryNavMenuButton : IAsyncDisposable
 {
 	private bool _disposed = false;

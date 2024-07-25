@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 
 namespace RazorUI.Layout;
 
 /// <summary>
 ///		二级导航菜单。
+///		<br/>* 用来放置 SecondaryNavMenuButton 组件。
+///		<br/>* 通过设置 FirstLevelNavigationPath 属性，让本组件只在一级导航路径与
+///			   FirstLevelNavigationPath 匹配时才显示，否则隐藏。
 /// </summary>
 public partial class SecondaryNavMenu
 {
@@ -84,6 +87,9 @@ public partial class SecondaryNavMenu
 		}
 	}
 
+	/// <summary>
+	///		将导航系统中的当前路径转为绝对路径，并保证以 / 结尾。
+	/// </summary>
 	private string AbsoluteCurrentUri
 	{
 		get
