@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.9.2</Version>
+    <Version>2.9.3</Version>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="BlazorMonaco" Version="3.2.0" />
-    <PackageReference Include="JCNET" Version="9.3.0" />
+    <PackageReference Include="JCNET" Version="10.0.0" />
     <PackageReference Include="JSInteropLib" Version="1.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.7" />
   </ItemGroup>
