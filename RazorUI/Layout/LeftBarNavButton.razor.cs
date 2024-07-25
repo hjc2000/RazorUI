@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Routing;
 
 namespace RazorUI.Layout;
 
@@ -7,6 +8,40 @@ namespace RazorUI.Layout;
 /// </summary>
 public partial class LeftBarNavButton
 {
+	private bool _disposed = false;
+
+	/// <summary>
+	///		释放。
+	/// </summary>
+	/// <returns></returns>
+	public async ValueTask DisposeAsync()
+	{
+		if (_disposed)
+		{
+			return;
+		}
+
+		_disposed = true;
+		GC.SuppressFinalize(this);
+		await ValueTask.CompletedTask;
+
+		Nav.LocationChanged -= OnLocationChange;
+	}
+
+	/// <summary>
+	///		初始化。
+	/// </summary>
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+		Nav.LocationChanged += OnLocationChange;
+	}
+
+	private void OnLocationChange(object? sender, LocationChangedEventArgs args)
+	{
+		StateHasChanged();
+	}
+
 	/// <summary>
 	///		子内容。可以放置按钮图标。
 	/// </summary>
@@ -30,7 +65,7 @@ public partial class LeftBarNavButton
 	public string Href { get; set; } = string.Empty;
 
 	/// <summary>
-	///		Href 转化为的绝对路径
+	///		Href 转化为的绝对 URI
 	/// </summary>
 	private string AbsoluteHrefUri
 	{
@@ -61,7 +96,7 @@ public partial class LeftBarNavButton
 	}
 
 	/// <summary>
-	///		只要 CurrentRelativeUri 是 RelativeHrefUri 的子路径就应该聚焦。
+	///		只要 CurrentRelativeUri 是 RelativeHrefUri 的子 URI 就应该聚焦。
 	/// </summary>
 	private bool ShouldFocus
 	{

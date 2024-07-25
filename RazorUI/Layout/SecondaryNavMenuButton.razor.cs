@@ -45,7 +45,7 @@ public partial class SecondaryNavMenuButton : IAsyncDisposable
 	public string Href { get; set; } = string.Empty;
 
 	/// <summary>
-	///		Href 转化为的绝对路径
+	///		Href 转化为的绝对 URI
 	/// </summary>
 	private string AbsoluteHrefUri
 	{
@@ -76,7 +76,7 @@ public partial class SecondaryNavMenuButton : IAsyncDisposable
 	}
 
 	/// <summary>
-	///		只要 CurrentRelativeUri 是 RelativeHrefUri 的子路径就应该聚焦。
+	///		只要 CurrentRelativeUri 是 RelativeHrefUri 的子 URI 就应该聚焦。
 	/// </summary>
 	private bool ShouldFocus
 	{

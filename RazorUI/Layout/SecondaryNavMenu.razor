@@ -1,8 +1,11 @@
 @inject NavigationManager Nav
 
-<div class="root"
-	 style="padding: @Padding;
+@if (ShouldDisplay)
+{
+	<div class="root"
+		 style="padding: @Padding;
 			grid-row-gap: @GridRowGap;">
 
-	@ChildContent
-</div>
+		@ChildContent
+	</div>
+}

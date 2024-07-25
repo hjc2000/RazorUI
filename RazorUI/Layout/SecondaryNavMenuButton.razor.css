@@ -6,9 +6,9 @@ a {
 	outline: none;
 	font-size: inherit;
 	text-decoration: none;
+	white-space: nowrap;
 }
 
 	a[should_focus] {
 		background-color: lightblue;
-		transform: scale(1.1);
 	}
