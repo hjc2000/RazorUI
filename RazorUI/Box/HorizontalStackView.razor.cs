@@ -8,6 +8,9 @@ namespace RazorUI.Box;
 /// </summary>
 public partial class HorizontalStackView
 {
+	/// <summary>
+	///		子内容。
+	/// </summary>
 	[Parameter]
 	public RenderFragment? ChildContent { get; set; }
 
@@ -28,11 +31,21 @@ public partial class HorizontalStackView
 	[Parameter]
 	public string Gap { get; set; } = "1em";
 
+	/// <summary>
+	///		内边距。默认：0
+	/// </summary>
 	[Parameter]
 	public string Padding { get; set; } = "0";
 
+	/// <summary>
+	///		宽度。默认：100%
+	/// </summary>
 	[Parameter]
 	public string Width { get; set; } = "100%";
+
+	/// <summary>
+	///		高度。默认：100%
+	/// </summary>
 	[Parameter]
 	public string Height { get; set; } = "100%";
 
@@ -48,6 +61,9 @@ public partial class HorizontalStackView
 	[Parameter]
 	public string JustifyItems { get; set; } = "center";
 
+	/// <summary>
+	///		溢出行为。默认：auto
+	/// </summary>
 	[Parameter]
 	public string Overflow { get; set; } = "auto";
 }
