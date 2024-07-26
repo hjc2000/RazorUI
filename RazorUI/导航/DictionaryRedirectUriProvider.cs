@@ -27,6 +27,12 @@ public class DictionaryRedirectUriProvider : IRedirectUriProvider, IDictionary<s
 		}
 	}
 
+	/// <inheritdoc/>
+	public void SetRedirectUri(string relative_uri, string dst_uri)
+	{
+		_dic[relative_uri] = dst_uri;
+	}
+
 	private Dictionary<string, string> _dic = [];
 
 	/// <inheritdoc/>

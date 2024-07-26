@@ -37,4 +37,29 @@ public class Redirector
 			Console.WriteLine(ex.ToString());
 		}
 	}
+
+	/// <summary>
+	///		将当前路径的父级路径的重定向目标路径更新为当前路径。
+	/// </summary>
+	public void UpdateRedirectUri()
+	{
+		string current_relative_path = Nav.ToBaseRelativePath(uri: Nav.Uri);
+		if (current_relative_path == string.Empty)
+		{
+			// 当前是根路径，直接返回
+			return;
+		}
+
+		int index = current_relative_path.IndexOf('/');
+		if (index == -1)
+		{
+			// 当前是一级路径，将根路径的重定向目标设置为本路径
+			RedirectUriProvider.SetRedirectUri(string.Empty, Nav.Uri);
+			return;
+		}
+
+		// 将上级相对路径的重定向目标设置为本路径
+		string parent_path = current_relative_path[..index];
+		RedirectUriProvider.SetRedirectUri(parent_path, Nav.Uri);
+	}
 }
