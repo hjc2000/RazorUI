@@ -7,6 +7,9 @@ namespace RazorUI.Box;
 /// </summary>
 public partial class Horizontal1FrStackView
 {
+	/// <summary>
+	///		子内容
+	/// </summary>
 	[Parameter]
 	public RenderFragment? ChildContent { get; set; }
 
