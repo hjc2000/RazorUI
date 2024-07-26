@@ -6,9 +6,9 @@ namespace Test.Pages;
 
 public partial class Dialog2
 {
-	protected override async Task OnInitializedAsync()
+	protected override async Task OnParametersSetAsync()
 	{
-		await base.OnInitializedAsync();
+		await base.OnParametersSetAsync();
 		Redirector.UpdateRedirectUri();
 	}
 
