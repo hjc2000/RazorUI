@@ -1,8 +1,3 @@
-@page "/{Path}"
+@page "/{*Path}"
 
 <RazorUI.导航.NotFound></RazorUI.导航.NotFound>
-
-@code {
-	[Parameter]
-	public string Path { get; set; } = string.Empty;
-}
