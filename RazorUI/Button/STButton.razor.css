@@ -2,8 +2,8 @@ button {
 	background-color: rgb(194, 208, 194);
 	position: relative;
 	z-index: 1;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 	padding: 5px;
 	overflow: hidden;
 	border: 2px solid #2c3e50;

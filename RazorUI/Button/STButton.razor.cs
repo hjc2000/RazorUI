@@ -3,24 +3,24 @@ using Microsoft.AspNetCore.Components;
 namespace RazorUI.Button;
 
 /// <summary>
-///		sat °´Å¥
+///		sat æŒ‰é’®
 /// </summary>
 public partial class STButton
 {
 	/// <summary>
-	///		×ÓÄÚÈİ
+	///		å­å†…å®¹
 	/// </summary>
 	[Parameter]
 	public RenderFragment? ChildContent { get; set; }
 
 	/// <summary>
-	///		½ûÓÃ°´Å¥
+	///		ç¦ç”¨æŒ‰é’®
 	/// </summary>
 	[Parameter]
 	public bool Disabled { get; set; } = false;
 
 	/// <summary>
-	///		ÔÚ²¶»ñ Parameter µÄ×îºó£¬²¶»ñËùÓĞÖ®Ç°Î´²¶»ñµÄ html ±êÇ©ÊôĞÔ¡£
+	///		åœ¨æ•è· Parameter çš„æœ€åï¼Œæ•è·æ‰€æœ‰ä¹‹å‰æœªæ•è·çš„ html æ ‡ç­¾å±æ€§ã€‚
 	/// </summary>
 	[Parameter(CaptureUnmatchedValues = true)]
 	public Dictionary<string, object>? CaptureUnmatchedValues { get; set; }
