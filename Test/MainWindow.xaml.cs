@@ -17,7 +17,7 @@ public partial class MainWindow : Window
 		ServiceCollection serviceCollection = new();
 		serviceCollection.InjectStringBuilderLogWriter();
 
-		serviceCollection.AddSingleton((p) =>
+		serviceCollection.AddSingleton<IRedirectUriProvider>((p) =>
 		{
 			return new DictionaryRedirectUriProvider()
 			{
@@ -26,6 +26,7 @@ public partial class MainWindow : Window
 			};
 		});
 
+		serviceCollection.AddScoped<Redirector>();
 		serviceCollection.AddWpfBlazorWebView();
 		Resources.Add("services", serviceCollection.BuildServiceProvider());
 	}
