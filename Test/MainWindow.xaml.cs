@@ -16,8 +16,17 @@ public partial class MainWindow : Window
 		InitializeComponent();
 		ServiceCollection serviceCollection = new();
 		serviceCollection.InjectStringBuilderLogWriter();
+		serviceCollection.InjectRedirector();
+		serviceCollection.AddWpfBlazorWebView();
+		Resources.Add("services", serviceCollection.BuildServiceProvider());
+	}
+}
 
-		serviceCollection.AddSingleton<IRedirectUriProvider>((p) =>
+internal static class Injector
+{
+	public static void InjectRedirector(this IServiceCollection services)
+	{
+		services.AddSingleton<IRedirectUriProvider>((p) =>
 		{
 			return new DictionaryRedirectUriProvider()
 			{
@@ -26,8 +35,6 @@ public partial class MainWindow : Window
 			};
 		});
 
-		serviceCollection.AddScoped<Redirector>();
-		serviceCollection.AddWpfBlazorWebView();
-		Resources.Add("services", serviceCollection.BuildServiceProvider());
+		services.AddScoped<Redirector>();
 	}
 }
