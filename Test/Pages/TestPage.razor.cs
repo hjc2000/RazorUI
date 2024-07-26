@@ -9,5 +9,7 @@ public partial class TestPage
 		await base.OnInitializedAsync();
 		//ProcessWindow window = new();
 		//window.Show();
+		DialogWindow dialog = new();
+		dialog.Show();
 	}
 }
