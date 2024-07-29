@@ -29,4 +29,22 @@ public partial class Horizontal1FrStackView
 	/// </summary>
 	[Parameter]
 	public string Gap { get; set; } = "1em";
+
+	/// <summary>
+	///		宽度。默认：100%
+	/// </summary>
+	[Parameter]
+	public string Width { get; set; } = "100%";
+
+	/// <summary>
+	///		高度。默认：100%
+	/// </summary>
+	[Parameter]
+	public string Height { get; set; } = "100%";
+
+	/// <summary>
+	///		内边距。默认：0
+	/// </summary>
+	[Parameter]
+	public string Padding { get; set; } = "0";
 }

@@ -1,5 +1,8 @@
 ﻿<div class="root"
-	 style="grid-template-columns: repeat(@(ColumnCount), 1fr);
+	 style="width: @(Width);
+			height: @(Height);
+			padding: @(Padding);
+			grid-template-columns: repeat(@(ColumnCount), 1fr);
 			grid-column-gap: @(Gap);">
 
 	@ChildContent
