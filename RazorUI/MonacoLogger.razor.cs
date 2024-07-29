@@ -64,6 +64,13 @@ public partial class MonacoLogger : IAsyncDisposable
 	[Parameter]
 	public int FontSize { get; set; } = 20;
 
+	/// <summary>
+	///		是否开启自动换行。设置为 true 开启，为 false 关闭。
+	///		默认值：true
+	/// </summary>
+	[Parameter]
+	public bool AutoWordWrap { get; set; } = true;
+
 	private CancellationTokenSource _cancel_refresh = new();
 	private StandaloneCodeEditor _editor = default!;
 
@@ -102,6 +109,7 @@ public partial class MonacoLogger : IAsyncDisposable
 			ScrollBeyondLastLine = false,
 			LineHeight = (int)(FontSize * 1.5),
 			FontSize = FontSize,
+			WordWrap = AutoWordWrap ? "wordWrapColumn" : "off",
 			Padding = new EditorPaddingOptions()
 			{
 				Top = 20,
