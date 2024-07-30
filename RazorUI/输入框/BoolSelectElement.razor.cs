@@ -19,9 +19,17 @@ public partial class BoolSelectElement
 	[Parameter]
 	public EventCallback<bool> ValueChanged { get; set; }
 
-	private async Task OnChange(bool value)
+	private int BoolInt
 	{
-		await ValueChanged.InvokeAsync(value);
+		get
+		{
+			return Value ? 1 : 0;
+		}
+	}
+
+	private async Task OnChange(int value)
+	{
+		await ValueChanged.InvokeAsync(value != 0);
 	}
 
 	/// <summary>

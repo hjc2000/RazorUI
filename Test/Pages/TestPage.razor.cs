@@ -9,7 +9,21 @@ public partial class TestPage
 		await base.OnInitializedAsync();
 		//ProcessWindow window = new();
 		//window.Show();
-		DialogWindow dialog = new();
-		dialog.Show();
+		//DialogWindow dialog = new();
+		//dialog.Show();
+	}
+
+	private static bool _value = false;
+
+	private bool Value
+	{
+		get
+		{
+			return _value;
+		}
+		set
+		{
+			_value = value;
+		}
 	}
 }
