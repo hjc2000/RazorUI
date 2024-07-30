@@ -49,6 +49,12 @@ public partial class FormTable
 	public string BodyPadding { get; set; } = "0";
 
 	/// <summary>
+	///		装着身体部分的盒子的内边距。默认：0
+	/// </summary>
+	[Parameter]
+	public string BodyBoxPadding { get; set; } = "0";
+
+	/// <summary>
 	///		表单脚部内边距。默认：0
 	/// </summary>
 	[Parameter]
