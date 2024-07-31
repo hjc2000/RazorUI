@@ -7,8 +7,15 @@ namespace RazorUI.Box;
 /// </summary>
 public partial class LeftRightLabel
 {
+	/// <summary>
+	///		左内容。
+	/// </summary>
 	[Parameter]
 	public RenderFragment? Left { get; set; }
+
+	/// <summary>
+	///		右内容。
+	/// </summary>
 	[Parameter]
 	public RenderFragment? Right { get; set; }
 
