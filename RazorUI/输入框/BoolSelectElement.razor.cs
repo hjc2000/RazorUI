@@ -8,6 +8,12 @@ namespace RazorUI.输入框;
 public partial class BoolSelectElement
 {
 	/// <summary>
+	///		将选择框设为只读。
+	/// </summary>
+	[Parameter]
+	public bool ReadOnly { get; set; }
+
+	/// <summary>
 	///		绑定值。
 	/// </summary>
 	[Parameter]
@@ -29,6 +35,11 @@ public partial class BoolSelectElement
 
 	private async Task OnChange(int value)
 	{
+		if (ReadOnly)
+		{
+			return;
+		}
+
 		await ValueChanged.InvokeAsync(value != 0);
 	}
 

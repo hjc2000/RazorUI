@@ -9,6 +9,12 @@ namespace RazorUI.输入框;
 public partial class IntInputElement
 {
 	/// <summary>
+	///		将选择框设为只读。
+	/// </summary>
+	[Parameter]
+	public bool ReadOnly { get; set; }
+
+	/// <summary>
 	///		绑定的值
 	/// </summary>
 	[Parameter]

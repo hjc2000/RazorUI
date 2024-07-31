@@ -17,6 +17,12 @@ public partial class EnumSelectElement<TEnum> where TEnum : Enum
 	private static Dictionary<TEnum, string> OptionDictionary { get; }
 
 	/// <summary>
+	///		将选择框设为只读。
+	/// </summary>
+	[Parameter]
+	public bool ReadOnly { get; set; }
+
+	/// <summary>
 	///		绑定值。
 	/// </summary>
 	[Parameter]
@@ -30,6 +36,11 @@ public partial class EnumSelectElement<TEnum> where TEnum : Enum
 
 	private async Task OnOptionChanged(TEnum value)
 	{
+		if (ReadOnly)
+		{
+			return;
+		}
+
 		await ValueChanged.InvokeAsync(value);
 	}
 }
