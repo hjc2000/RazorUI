@@ -16,13 +16,25 @@ export class BarChart
 	constructor(element)
 	{
 		this.element = element;
+		this.chart = echarts.init(this.element);
+
+		let resizeObserver = new ResizeObserver((entries) =>
+		{
+			entries.forEach((entry) =>
+			{
+				console.log('Size changed:', entry.contentRect.width, 'x', entry.contentRect.height);
+				this.chart.resize({
+					width: entry.contentRect.width,
+					height: entry.contentRect.height,
+				})
+			});
+		});
+
+		resizeObserver.observe(this.element);
 	}
 
 	Draw()
 	{
-		// 基于准备好的dom，初始化echarts实例
-		this.chart = echarts.init(this.element);
-
 		// 指定图表的配置项和数据
 		var option = {
 			title: {
