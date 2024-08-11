@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorUI", "RazorUI\RazorUI.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{8069FC9C-6157-4DA8-A230-8BD946B61B66}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{FA9B687D-07A3-42D2-8C22-CD39C34CEF68}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{8069FC9C-6157-4DA8-A230-8BD946B61B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8069FC9C-6157-4DA8-A230-8BD946B61B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8069FC9C-6157-4DA8-A230-8BD946B61B66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA9B687D-07A3-42D2-8C22-CD39C34CEF68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA9B687D-07A3-42D2-8C22-CD39C34CEF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA9B687D-07A3-42D2-8C22-CD39C34CEF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA9B687D-07A3-42D2-8C22-CD39C34CEF68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
