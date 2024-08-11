@@ -26,15 +26,18 @@ internal static class Injector
 {
 	public static void InjectRedirector(this IServiceCollection services)
 	{
+		// 添加重定向 URI 提供者
 		services.AddSingleton<IRedirectUriProvider>((p) =>
 		{
 			return new DictionaryRedirectUriProvider()
 			{
 				new KeyValuePair<string, string>("", "home"),
 				new KeyValuePair<string, string>("dialog", "dialog/dialog1"),
+				new KeyValuePair<string, string>("debug", "debug/log"),
 			};
 		});
 
+		// 添加重定向器
 		services.AddScoped<Redirector>();
 	}
 }

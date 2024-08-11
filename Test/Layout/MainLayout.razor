@@ -1,13 +1,12 @@
-@using RazorUI.Button
-@using RazorUI.Layout
 @inherits LayoutComponentBase
 
-<PCLayoutComponent>
+<RazorUI.Layout.PCLayoutComponent>
 	<LeftBarContent>
-		<LeftBarNav>
-			<LeftBarNavButton Href="./home">📂</LeftBarNavButton>
-			<LeftBarNavButton Href="./dialog">📂</LeftBarNavButton>
-		</LeftBarNav>
+		<RazorUI.Layout.LeftBarNav>
+			<RazorUI.Layout.LeftBarNavButton Href="./home">📂</RazorUI.Layout.LeftBarNavButton>
+			<RazorUI.Layout.LeftBarNavButton Href="./dialog">📂</RazorUI.Layout.LeftBarNavButton>
+			<RazorUI.Layout.LeftBarNavButton Href="./debug">📂</RazorUI.Layout.LeftBarNavButton>
+		</RazorUI.Layout.LeftBarNav>
 	</LeftBarContent>
 	<LeftMenu>
 		<LeftNavMenu></LeftNavMenu>
@@ -21,4 +20,4 @@
 	<Content>
 		@Body
 	</Content>
-</PCLayoutComponent>
+</RazorUI.Layout.PCLayoutComponent>

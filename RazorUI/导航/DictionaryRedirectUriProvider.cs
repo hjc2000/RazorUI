@@ -6,7 +6,9 @@ namespace RazorUI.导航;
 /// <summary>
 ///		基于字典的重定向目标路径提供者。
 /// </summary>
-public class DictionaryRedirectUriProvider : IRedirectUriProvider, IDictionary<string, string>
+public class DictionaryRedirectUriProvider :
+	IRedirectUriProvider,
+	IDictionary<string, string>
 {
 	/// <summary>
 	///		通过相对 URI 获取重定向目标 URI

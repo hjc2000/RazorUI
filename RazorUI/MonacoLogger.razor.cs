@@ -15,15 +15,14 @@ public partial class MonacoLogger : IAsyncDisposable
 	public MonacoLogger()
 	{
 		// 拼接 id 选择器
-		CssString = $"#{_id_provider.IdString}" + @"
-			{
+		CssString = $"#{_id_provider.IdString}" +
+			@"{
 				width: 100%;
 				height: 100%;
 				box-sizing: border-box;
 				margin: 0;
 				padding: 20px 0 0 0;
-			}
-			";
+			}";
 	}
 
 	private bool _disposed = false;
