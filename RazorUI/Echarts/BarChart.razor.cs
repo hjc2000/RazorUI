@@ -1,5 +1,4 @@
-﻿
-using JSInteropLib;
+﻿using JSInteropLib;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
