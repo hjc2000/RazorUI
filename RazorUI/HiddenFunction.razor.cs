@@ -2,9 +2,16 @@ using JSInteropLib;
 using Microsoft.JSInterop;
 
 namespace RazorUI;
+
+/// <summary>
+///		隐藏功能。
+/// </summary>
 public partial class HiddenFunction : IAsyncDisposable
 {
 	#region 生命周期
+	/// <summary>
+	///		隐藏功能
+	/// </summary>
 	public HiddenFunction()
 	{
 		_show_hidden_function_callback_helper.CallbackAction = () =>
@@ -13,6 +20,10 @@ public partial class HiddenFunction : IAsyncDisposable
 		};
 	}
 
+	/// <summary>
+	///		初始化
+	/// </summary>
+	/// <returns></returns>
 	protected override async Task OnInitializedAsync()
 	{
 		_jsm = new(_jsrt, "./_content/RazorUI/HiddenFunction.razor.js");
@@ -20,6 +31,10 @@ public partial class HiddenFunction : IAsyncDisposable
 	}
 
 	private bool _disposed = false;
+	/// <summary>
+	///		释放
+	/// </summary>
+	/// <returns></returns>
 	public async ValueTask DisposeAsync()
 	{
 		if (_disposed)
@@ -49,6 +64,10 @@ public partial class HiddenFunction : IAsyncDisposable
 	private CallbackHelper _show_hidden_function_callback_helper = new();
 
 	private static bool _should_show_hidden_function = false;
+
+	/// <summary>
+	///		指示是否应该显示隐藏功能。
+	/// </summary>
 	public static bool ShouldShowHiddenFunction
 	{
 		get
@@ -64,7 +83,7 @@ public partial class HiddenFunction : IAsyncDisposable
 	}
 
 	/// <summary>
-	/// HiddenFunction 属性改变事件
+	///		HiddenFunction 属性改变事件
 	/// </summary>
 	public static event Action? ShouldShowHiddenFunctionChanged;
 }

@@ -1,11 +1,21 @@
 using Microsoft.AspNetCore.Components;
 
 namespace RazorUI;
+
+/// <summary>
+///		进度条
+/// </summary>
 public partial class ProgressBar
 {
+	/// <summary>
+	///		进度条当前值
+	/// </summary>
 	[Parameter]
 	public double Value { get; set; } = 0;
 
+	/// <summary>
+	///		进度条最大值
+	/// </summary>
 	[Parameter]
 	public double MaxValue { get; set; }
 
@@ -22,6 +32,9 @@ public partial class ProgressBar
 	[Parameter]
 	public RenderFragment? ProgressIndication { get; set; }
 
+	/// <summary>
+	///		进度条右侧是否显示一个取消按钮
+	/// </summary>
 	[Parameter]
 	public bool UseCancelButton { get; set; } = false;
 
@@ -31,6 +44,9 @@ public partial class ProgressBar
 	[Parameter]
 	public EventCallback CancelButtonClickEvent { get; set; }
 
+	/// <summary>
+	///		捕获所有剩余的 html 属性。
+	/// </summary>
 	[Parameter(CaptureUnmatchedValues = true)]
 	public Dictionary<string, object>? Attributes { get; set; }
 
