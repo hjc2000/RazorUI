@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Components;
 namespace RazorUI.Layout;
 
 /// <summary>
-///		ÓÃÓÚ·ÅÖÃµ½ PCLayoutComponent µÄ×ó²à°´Å¥ÌõµÄµ¼º½Ìõ×é¼ş¡£
+///		å·¦ä¾§è¾¹æ å¯¼èˆªæ¡ã€‚
+///		ç”¨æ¥æ”¾ç½®åˆ° PCLayoutComponent çš„ LeftBarContent ä¸­çš„ç»„ä»¶ã€‚
 /// </summary>
 public partial class LeftBarNav
 {
 	/// <summary>
-	///		×ÓÄÚÈİ¡£ÓÃÀ´·ÅÖÃ LeftBarNavButton ×é¼ş¡£
+	///		ç”¨æ¥æ”¾ç½® LeftBarNavButton
 	/// </summary>
 	[Parameter]
 	public RenderFragment? ChildContent { get; set; }
