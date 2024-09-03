@@ -2,8 +2,8 @@
 
 <select @bind:get="Value" @bind:set="OnOptionChanged"
 		readonly="@ReadOnly"
-		error_input="@IsError"
-		title="@(IsError ? ErrorMessage : null)">
+		error_input="@(ErrorState==InputElementErrorState.IsError)"
+		title="@(ErrorState==InputElementErrorState.IsError ? ErrorMessage : null)">
 	@foreach (KeyValuePair<TEnum, string> pair in OptionDictionary)
 	{
 		<option value="@pair.Key">@pair.Value</option>
