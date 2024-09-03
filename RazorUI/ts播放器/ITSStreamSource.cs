@@ -6,5 +6,10 @@ namespace RazorUI.ts播放器;
 /// </summary>
 public interface ITSStreamSource
 {
+	/// <summary>
+	///		获取 ts 流
+	/// </summary>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
 	Task<Stream?> GetTSStreamAsync(CancellationToken cancellationToken);
 }

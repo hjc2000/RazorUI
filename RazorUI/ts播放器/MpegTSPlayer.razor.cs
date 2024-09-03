@@ -3,8 +3,15 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace RazorUI.ts播放器;
+
+/// <summary>
+///		ts 播放器
+/// </summary>
 public partial class MpegTSPlayer : IJSObjectProjection, IAsyncDisposable
 {
+	/// <summary>
+	///		ts 播放器
+	/// </summary>
 	public MpegTSPlayer()
 	{
 		_frame_drop_log_callback_helper.CallbackAction = async () =>
@@ -29,6 +36,10 @@ public partial class MpegTSPlayer : IJSObjectProjection, IAsyncDisposable
 		_source_open_callback_helper.CallbackAction = OnSourceOpenAsync;
 	}
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="firstRender"></param>
 	protected override async void OnAfterRender(bool firstRender)
 	{
 		await base.OnAfterRenderAsync(firstRender);
@@ -44,6 +55,11 @@ public partial class MpegTSPlayer : IJSObjectProjection, IAsyncDisposable
 	}
 
 	private bool _disposed = false;
+
+	/// <summary>
+	///		释放
+	/// </summary>
+	/// <returns></returns>
 	public async ValueTask DisposeAsync()
 	{
 		if (_disposed)
@@ -226,6 +242,9 @@ public partial class MpegTSPlayer : IJSObjectProjection, IAsyncDisposable
 		}
 	}
 
+	/// <summary>
+	///		ts 流源
+	/// </summary>
 	[Parameter]
 	public ITSStreamSource TSStreamSource { get; set; } = default!;
 
@@ -286,6 +305,10 @@ public partial class MpegTSPlayer : IJSObjectProjection, IAsyncDisposable
 		}
 	}
 
+	/// <summary>
+	///		加载并播放
+	/// </summary>
+	/// <returns></returns>
 	public async Task LoadAndPlayAsync()
 	{
 		try
@@ -333,6 +356,10 @@ public partial class MpegTSPlayer : IJSObjectProjection, IAsyncDisposable
 		}
 	}
 
+	/// <summary>
+	///		获取当前播放到的时间
+	/// </summary>
+	/// <returns></returns>
 	public async Task<double> GetCurrentTimeAsync()
 	{
 		await _init_tcs.Task;
@@ -340,7 +367,12 @@ public partial class MpegTSPlayer : IJSObjectProjection, IAsyncDisposable
 	}
 
 	private TaskCompletionSource _init_tcs = new();
+
+	/// <summary>
+	///		镜像
+	/// </summary>
 	public IJSObjectReference Projection { get; set; } = default!;
+
 	private JSOp _jsop = default!;
 	private JSModule _jsm = default!;
 	private ElementReference _video_element;

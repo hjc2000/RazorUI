@@ -2,6 +2,9 @@
 
 namespace RazorUI.ImportHelper;
 
+/// <summary>
+///		导入全局样式
+/// </summary>
 public partial class ImportRazorUIGlobalStyle
 {
 	/// <summary>

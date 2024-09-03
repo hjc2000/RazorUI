@@ -6,19 +6,9 @@ namespace RazorUI.表单;
 
 #pragma warning disable CA1416 // 验证平台兼容性
 
-public struct SerialPortOptions
-{
-	public SerialPortOptions()
-	{
-
-	}
-
-	public string PortName { get; set; } = string.Empty;
-	public int BaudRate { get; set; } = 115200;
-	public Parity Parity { get; set; } = Parity.Even;
-	public StopBits StopBits { get; set; } = StopBits.One;
-}
-
+/// <summary>
+///		串口设置表单
+/// </summary>
 public partial class SerialPortSetupFormTable
 {
 	/// <summary>
@@ -83,6 +73,40 @@ public partial class SerialPortSetupFormTable
 
 		}
 	}
+}
+
+/// <summary>
+///		串口选项
+/// </summary>
+public struct SerialPortOptions
+{
+	/// <summary>
+	///		串口选项
+	/// </summary>
+	public SerialPortOptions()
+	{
+
+	}
+
+	/// <summary>
+	///		端口名
+	/// </summary>
+	public string PortName { get; set; } = string.Empty;
+
+	/// <summary>
+	///		波特率
+	/// </summary>
+	public int BaudRate { get; set; } = 115200;
+
+	/// <summary>
+	///		校验方式
+	/// </summary>
+	public Parity Parity { get; set; } = Parity.Even;
+
+	/// <summary>
+	///		停止位
+	/// </summary>
+	public StopBits StopBits { get; set; } = StopBits.One;
 }
 
 #pragma warning restore CA1416 // 验证平台兼容性
