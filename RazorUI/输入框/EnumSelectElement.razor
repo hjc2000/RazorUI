@@ -1,6 +1,9 @@
 @typeparam TEnum
 
-<select @bind:get="Value" @bind:set="OnOptionChanged">
+<select @bind:get="Value" @bind:set="OnOptionChanged"
+		readonly="@ReadOnly"
+		error_input="@IsError"
+		title="@(IsError ? ErrorMessage : null)">
 	@foreach (KeyValuePair<TEnum, string> pair in OptionDictionary)
 	{
 		<option value="@pair.Key">@pair.Value</option>

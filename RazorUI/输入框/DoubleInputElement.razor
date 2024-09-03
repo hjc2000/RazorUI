@@ -1,1 +1,4 @@
-﻿<input readonly="@ReadOnly" @bind:get="ValueString" @bind:set="OnChange" />
+﻿<input @bind:get="ValueString" @bind:set="OnChange"
+	   readonly="@ReadOnly"
+	   error_input="@IsError"
+	   title="@(IsError ? ErrorMessage : null)" />

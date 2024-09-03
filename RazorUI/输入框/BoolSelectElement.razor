@@ -1,4 +1,6 @@
-<select @bind:get="BoolInt" @bind:set="OnChange">
+<select @bind:get="BoolInt" @bind:set="OnChange"
+		error_input="@IsError"
+		title="@(IsError ? ErrorMessage : null)">
 	<option value="0">@(FalseText)</option>
 	<option value="1">@(TrueText)</option>
 </select>

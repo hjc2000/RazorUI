@@ -54,4 +54,16 @@ public partial class BoolSelectElement
 	/// </summary>
 	[Parameter]
 	public string FalseText { get; set; } = "false";
+
+	/// <summary>
+	///		当前填写的有错误。
+	/// </summary>
+	[Parameter]
+	public bool IsError { get; set; } = false;
+
+	/// <summary>
+	///		当前填写的有错误时将鼠标放到输入框上时显示的消息。
+	/// </summary>
+	[Parameter]
+	public string ErrorMessage { get; set; } = string.Empty;
 }

@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace RazorUI.输入框;
 
+/// <summary>
+///		浮点数输入框
+/// </summary>
 public partial class DoubleInputElement
 {
 	/// <summary>
@@ -56,4 +59,16 @@ public partial class DoubleInputElement
 			await ValueChanged.InvokeAsync(out_long);
 		}
 	}
+
+	/// <summary>
+	///		当前填写的有错误。
+	/// </summary>
+	[Parameter]
+	public bool IsError { get; set; } = false;
+
+	/// <summary>
+	///		当前填写的有错误时将鼠标放到输入框上时显示的消息。
+	/// </summary>
+	[Parameter]
+	public string ErrorMessage { get; set; } = string.Empty;
 }
