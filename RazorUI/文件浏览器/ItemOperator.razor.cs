@@ -170,7 +170,6 @@ public partial class ItemOperator : IAsyncDisposable
 	}
 
 	#region 删除文件
-	private EnsureDialog _delete_ensure_dialog = default!;
 	private Dialog _operating_list_dialog = default!;
 	private TaskCompletionSource<bool> _ensure_delete_tcs = new();
 
@@ -193,9 +192,7 @@ public partial class ItemOperator : IAsyncDisposable
 
 			// 询问是否确认删除
 			_ensure_delete_tcs = new TaskCompletionSource<bool>();
-			await _delete_ensure_dialog.ShowModalAsync();
 			bool want_to_delete = await _ensure_delete_tcs.Task;
-			await _delete_ensure_dialog.CloseAsync();
 			if (!want_to_delete)
 			{
 				Console.WriteLine("取消删除");

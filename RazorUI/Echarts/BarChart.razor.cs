@@ -4,6 +4,9 @@ using Microsoft.JSInterop;
 
 namespace RazorUI.Echarts;
 
+/// <summary>
+///		条形图。
+/// </summary>
 public partial class BarChart :
 	IJSObjectProjection,
 	IAsyncDisposable
