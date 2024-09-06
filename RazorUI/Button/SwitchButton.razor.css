@@ -1,7 +1,12 @@
 .root {
-	width: 4.2em;
-	height: 1.5em;
+	width: 100%;
+	height: 100%;
 	user-select: none;
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
 	overflow: hidden;
 }
 
@@ -16,8 +21,9 @@
 }
 
 .on_box {
-	width: 100%;
-	height: 100%;
+	width: 4.2em;
+	height: 1.5em;
+	line-height: 1.5em;
 	padding-left: 0.5em;
 	border-radius: 1em;
 	background-color: lawngreen;
@@ -26,8 +32,9 @@
 }
 
 .off_box {
-	width: 100%;
-	height: 100%;
+	width: 4.2em;
+	height: 1.5em;
+	line-height: 1.5em;
 	padding-right: 0.5em;
 	border-radius: 1em;
 	background-color: red;
