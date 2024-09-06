@@ -8,6 +8,8 @@ namespace RazorUI.输入框;
 /// </summary>
 public partial class DoubleInputElement
 {
+	private IDStringProvider _data_list_id_string_provider = new();
+
 	/// <summary>
 	///		将选择框设为只读。
 	/// </summary>
@@ -71,4 +73,10 @@ public partial class DoubleInputElement
 	/// </summary>
 	[Parameter]
 	public string ErrorMessage { get; set; } = string.Empty;
+
+	/// <summary>
+	///		数据列表
+	/// </summary>
+	[Parameter]
+	public IEnumerable<double>? DataList { get; set; }
 }

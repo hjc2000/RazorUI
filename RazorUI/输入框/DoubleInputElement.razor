@@ -1,4 +1,27 @@
-﻿<input @bind:get="ValueString" @bind:set="OnChange"
+﻿@{
+	string? InputElementListString()
+	{
+		if (DataList is not null && DataList.Count() > 0)
+		{
+			return _data_list_id_string_provider.IdString;
+		}
+
+		return null;
+	}
+}
+
+<input @bind:get="ValueString" @bind:set="OnChange"
 	   readonly="@ReadOnly"
+	   list="@(InputElementListString())"
 	   error_input="@(ErrorState==InputElementErrorState.IsError)"
 	   title="@(ErrorState==InputElementErrorState.IsError ? ErrorMessage : null)" />
+
+@if (DataList is not null && DataList.Count() > 0)
+{
+	<datalist id="@(_data_list_id_string_provider.IdString)">
+		@foreach (double value in DataList)
+		{
+			<option value="@(value)"></option>
+		}
+	</datalist>
+}

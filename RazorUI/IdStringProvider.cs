@@ -24,4 +24,13 @@ public class IDStringProvider
 	///		在本对象生命周期内，此属性不会改变。
 	/// </summary>
 	public string IdString { get; }
+
+	/// <summary>
+	///		返回 ID 字符串。
+	/// </summary>
+	/// <returns></returns>
+	public override string ToString()
+	{
+		return IdString;
+	}
 }
