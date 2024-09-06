@@ -1,4 +1,9 @@
-<div class="root" @onclick="ChangeExpandStateAsync" title="@HorverTitle">
+<div _hover="@IsHover"
+	 class="root"
+	 title="@HoverTitle"
+	 @onclick="ChangeExpandStateAsync"
+	 @onmouseenter="OnMouseEnterAsync"
+	 @onmouseout="OnMouseOutAsync">
 	@if (ExpandState == FormExpandState.Expand)
 	{
 		// 当前处于展开，需要收起

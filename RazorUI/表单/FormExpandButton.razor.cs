@@ -31,7 +31,7 @@ public partial class FormExpandButton
 		}
 	}
 
-	private string HorverTitle
+	private string HoverTitle
 	{
 		get
 		{
@@ -44,6 +44,20 @@ public partial class FormExpandButton
 				return "展开";
 			}
 		}
+	}
+
+	private bool IsHover { get; set; } = false;
+
+	private async Task OnMouseEnterAsync()
+	{
+		await Task.CompletedTask;
+		IsHover = true;
+	}
+
+	private async Task OnMouseOutAsync()
+	{
+		await Task.CompletedTask;
+		IsHover = false;
 	}
 }
 

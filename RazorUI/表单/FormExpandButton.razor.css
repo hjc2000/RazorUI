@@ -7,7 +7,7 @@
 	justify-content: center;
 }
 
-	.root:hover {
+	.root[_hover] {
 		background-color: cornflowerblue;
 	}
 
