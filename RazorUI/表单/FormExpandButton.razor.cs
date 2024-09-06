@@ -45,20 +45,6 @@ public partial class FormExpandButton
 			}
 		}
 	}
-
-	private bool IsHover { get; set; } = false;
-
-	private async Task OnMouseEnterAsync()
-	{
-		await Task.CompletedTask;
-		IsHover = true;
-	}
-
-	private async Task OnMouseOutAsync()
-	{
-		await Task.CompletedTask;
-		IsHover = false;
-	}
 }
 
 /// <summary>
