@@ -30,6 +30,21 @@ public partial class FormExpandButton
 			await ExpandStateChanged.InvokeAsync(FormExpandState.Expand);
 		}
 	}
+
+	private string HorverTitle
+	{
+		get
+		{
+			if (ExpandState == FormExpandState.Expand)
+			{
+				return "折叠";
+			}
+			else
+			{
+				return "展开";
+			}
+		}
+	}
 }
 
 /// <summary>

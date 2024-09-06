@@ -1,16 +1,12 @@
-<div class="root" @onclick="ChangeExpandStateAsync">
+<div class="root" @onclick="ChangeExpandStateAsync" title="@HorverTitle">
 	@if (ExpandState == FormExpandState.Expand)
 	{
 		// 当前处于展开，需要收起
-		<div title="折叠">
-			<Icon.ExpandUp></Icon.ExpandUp>
-		</div>
+		<Icon.ExpandUp></Icon.ExpandUp>
 	}
 	else
 	{
 		// 当前处于收起，需要展开
-		<div title="展开">
-			<Icon.ExpandDown></Icon.ExpandDown>
-		</div>
+		<Icon.ExpandDown></Icon.ExpandDown>
 	}
 </div>
