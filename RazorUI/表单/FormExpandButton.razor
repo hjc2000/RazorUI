@@ -1,0 +1,12 @@
+<div class="root" @onclick="ChangeExpandStateAsync">
+	@if (ExpandState == FormExpandState.Expand)
+	{
+		// 当前处于展开，需要收起
+		<Icon.ExpandUp></Icon.ExpandUp>
+	}
+	else
+	{
+		// 当前处于收起，需要展开
+		<Icon.ExpandDown></Icon.ExpandDown>
+	}
+</div>

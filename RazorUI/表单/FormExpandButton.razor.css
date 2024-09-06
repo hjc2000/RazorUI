@@ -1,0 +1,16 @@
+.root {
+	width: 100%;
+	height: 1.5em;
+	background-color: lightgray;
+	grid-column: 1/-1;
+	display: flex;
+	justify-content: center;
+}
+
+	.root:hover {
+		background-color: cornflowerblue;
+	}
+
+	.root:active {
+		background-color: lightgray;
+	}
