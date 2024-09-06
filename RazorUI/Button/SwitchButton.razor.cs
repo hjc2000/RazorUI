@@ -29,12 +29,10 @@ public partial class SwitchButton
 	{
 		if (State == SwitchButtonState.On)
 		{
-			State = SwitchButtonState.Off;
 			await StateChanged.InvokeAsync(SwitchButtonState.Off);
 		}
 		else
 		{
-			State = SwitchButtonState.On;
 			await StateChanged.InvokeAsync(SwitchButtonState.On);
 		}
 	}
